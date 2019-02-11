@@ -97,8 +97,8 @@ CREATE TABLE "person" (
 	"country_id" int NOT NULL,
 	"gender_id" int NOT NULL,
 	"facebook_username" varchar,
-	"place_of_employment" varchar,
-	"job title" varchar,
+	"employer" varchar,
+	"job_title" varchar,
 	"food_preferences" varchar NOT NULL,
 	"preferred_transportation" varchar(16) NOT NULL,
 	"comments" varchar(16) NOT NULL,
@@ -658,7 +658,10 @@ ALTER TABLE "person" ADD CONSTRAINT "person_fk3" FOREIGN KEY ("auth_id") REFEREN
 ALTER TABLE "registration" ADD CONSTRAINT "registration_fk0" FOREIGN KEY ("person_id") REFERENCES "person"("id");
 ALTER TABLE "registration" ADD CONSTRAINT "registration_fk1" FOREIGN KEY ("event_id") REFERENCES "events"("id");
   
-  
+INSERT INTO "public"."auth"("id", "type") VALUES(1, 'Superuser') RETURNING "id", "type";
+INSERT INTO "public"."auth"("id", "type") VALUES(2, 'User') RETURNING "id", "type";
+ALTER TABLE "public"."person" ALTER COLUMN "auth_id" SET DEFAULT 2;
+
 
 
 
