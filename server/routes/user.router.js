@@ -15,12 +15,30 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
-router.post('/register', (req, res, next) => {  
+router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
+  const name = req.body.name;
+  const dob = req.body.dob;
+  const email = req.body.email;
+  const phone = req.body.phone;
+  const hometown = req.body.hometown;
+  const country = req.body.country_id;
+  const gender = req.body.gender_id;
+  const social = req.body.facebook_username;
+  const employer = req.body.employer;
+  const job = req.body.job_title;
+  const preferences = req.body.food_preferences;
+  const transportation = req.body.preferred_transportation;
+  const comments = req.body.comments;
 
-  const queryText = 'INSERT INTO person (username, password) VALUES ($1, $2) RETURNING id';
-  pool.query(queryText, [username, password])
+  const queryText = `INSERT INTO "person" ("username", "password", "name", "dob", "email", "phone", 
+                      "hometown", "country_id", "gender_id", "facebook_username", "employer", "job_title", "food_preferences",
+                      "preferred_transportation", "comments") VALUES($1, $2, $3, $4, $5, $6, $7, $8,
+                      $9, $10, $11, $12, $13, $14, $15) RETURNING id`;
+  pool.query(queryText, [username, password, name, dob, email, phone,
+    hometown, country, gender, social, employer, job, preferences,
+    transportation, comments])
     .then(() => { res.sendStatus(201); })
     .catch((err) => { next(err); });
 });
