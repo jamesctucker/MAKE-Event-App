@@ -244,7 +244,7 @@ class RegisterPage extends Component {
             />
           </div>
         </form>
-        <div>
+        <center>
           <button
             type="button"
             className="link-button"
@@ -252,7 +252,7 @@ class RegisterPage extends Component {
           >
             Login
           </button>
-        </div>
+        </center>
       </div>
     );
   }
