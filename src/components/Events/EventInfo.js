@@ -6,15 +6,15 @@ import axios from 'axios';
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is, so it doesn't need 'connect()'
 
-class Events extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Events</h1>
-      </div>
-    )
-  }
+class EventInfo extends Component {
+    render() {
+        return (
+            <div>
+                <h1>Event Info</h1>
+            </div>
+        )
+    }
 };
 
 
-export default Events;
+export default EventInfo;

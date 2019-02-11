@@ -16,6 +16,13 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import Events from '../Events/Events';
+import EventInfo from '../Events/EventInfo';
+import CreateEvent from '../Events/CreateEvent';
+import Dashboard from '../Admin/Dashboard';
+import News from '../News/News';
+import AddNews from '../News/AddNews';
+
+
 
 import './App.css';
 
@@ -36,9 +43,16 @@ class App extends Component {
             This is a route anyone can see, no login necessary */}
             <Route
               exact
-              path="/about"
-              component={AboutPage}
+              path="/news"
+              component={News}
             />
+            <ProtectedRoute
+              exact
+              path="/add-news"
+              component={AddNews}
+            />
+
+
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
@@ -48,6 +62,13 @@ class App extends Component {
               path="/home"
               component={UserPage}
             />
+
+
+            <ProtectedRoute
+              exact
+              path="/dashboard"
+              component={Dashboard}
+            />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <Route
@@ -55,6 +76,34 @@ class App extends Component {
               path="/events"
               component={Events}
             />
+
+            <Route
+              exact
+              path="/event-info"
+              component={EventInfo}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/create-event"
+              component={CreateEvent}
+            />
+
+            <Route
+              exact
+              path="/news"
+              component={News}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/add-news"
+              component={AddNews}
+            />
+
+
+
+
 
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
