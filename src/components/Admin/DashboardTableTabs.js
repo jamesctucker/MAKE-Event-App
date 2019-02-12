@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import DashboardTable from '../Admin/DashboardTable';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -48,7 +49,7 @@ class DashboardTableTabs extends Component {
                         <Tab label="Item Three" />
                     </Tabs>
                 </AppBar>
-                {value === 0 && <TabContainer>Item One</TabContainer>}
+                {value === 0 && <TabContainer><DashboardTable /></TabContainer>}
                 {value === 1 && <TabContainer>Item Two</TabContainer>}
                 {value === 2 && <TabContainer>Item Three</TabContainer>}
             </div>
