@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import DashboardTable from '../Admin/DashboardTable';
+import { connect } from 'react-redux';
+import AttendeeTable from '../Admin/AttendeeTable';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -44,14 +44,15 @@ class DashboardTableTabs extends Component {
             <div className={classes.root}>
                 <AppBar position="static">
                     <Tabs value={value} onChange={this.handleChange}>
-                        <Tab label="Item One" />
-                        <Tab label="Item Two" />
-                        <Tab label="Item Three" />
+                        <Tab label="Attendees" />
+                        <Tab label="Applications" />
+                        <Tab label="Volunteers" />
+
                     </Tabs>
                 </AppBar>
-                {value === 0 && <TabContainer><DashboardTable /></TabContainer>}
+                {value === 0 && <TabContainer><AttendeeTable /></TabContainer>}
                 {value === 1 && <TabContainer>Item Two</TabContainer>}
-                {value === 2 && <TabContainer>Item Three</TabContainer>}
+                {value === 2 && <TabContainer>Item Two</TabContainer>}
             </div>
         );
     }
@@ -61,4 +62,7 @@ DashboardTableTabs.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(DashboardTableTabs);
+const mapStoreToProps = reduxStore => ({ reduxStore })
+
+
+export default connect(mapStoreToProps)(withStyles(styles)(DashboardTableTabs));

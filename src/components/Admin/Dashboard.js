@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import DashboardTableTabs from '../Admin/DashboardTableTabs';
 
 class Dashboard extends Component {
+
     render() {
         return (
             <div>
@@ -14,4 +15,7 @@ class Dashboard extends Component {
 };
 
 
-export default Dashboard;
+
+const mapStoreToProps = reduxStore => ({ reduxStore, })
+
+export default connect(mapStoreToProps)(Dashboard);
