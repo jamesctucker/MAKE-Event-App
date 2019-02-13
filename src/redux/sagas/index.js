@@ -3,6 +3,7 @@ import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import dashboardSaga from './dashboardSaga';
+import eventSaga from './eventSaga';
 
 
 // rootSaga is the primary saga.
@@ -15,6 +16,7 @@ import dashboardSaga from './dashboardSaga';
 export default function* rootSaga() {
   yield all([
     dashboardSaga(),
+    eventSaga(),
     loginSaga(),
     registrationSaga(),
     userSaga(),
