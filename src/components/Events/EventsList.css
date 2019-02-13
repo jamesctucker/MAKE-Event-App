@@ -1,0 +1,26 @@
+#list-card {
+    max-width: 200px;
+    max-height: 200px;
+    padding: 10px;
+    margin: 5px;
+    justify-content: space-between;
+}
+
+/* #event-name {
+    text-align: left;
+    padding: 3px;
+}
+
+#event-description {
+    text-align: justify;
+    text-justify: auto;
+    padding: 3px;
+
+    
+} */
+
+/* #tag-chip {
+    float: left;
+    padding: 2px;
+
+} */

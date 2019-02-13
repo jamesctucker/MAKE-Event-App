@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import EventsList from './../Events/EventsList';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import './Events.css';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -18,7 +19,7 @@ class Events extends Component {
 
   render() {
     return (
-      <Paper elevation={3}>
+      <Paper id="events-paper" elevation={3}>
         <Grid container spacing={32}>
           {this.props.reduxStore.events.map((result, i) => (
             <EventsList key={i} result={result} />

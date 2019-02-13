@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import './EventsList.css';
 // import Link from '@material-ui/core/Link';
 // import Chip from '@material-ui/core/Chip';
 // import Tooltip from '@material-ui/core/Tooltip';
@@ -20,12 +21,12 @@ class EventsList extends Component {
     }
     render() {
         return (
-            <Card>
+            <Card id="list-card">
                 <CardContent>
                     <Typography>{this.props.result.event_start_date}</Typography>
-                    <Typography>{this.props.result.event_name}</Typography>
+                    <Typography variant="h5">{this.props.result.event_name}</Typography>
                     <Typography>{this.props.result.event_city}</Typography>
-                    <Typography>{this.props.result.event_description}</Typography>
+                    <Typography component="p">{this.props.result.event_description}</Typography>
                 </CardContent>
                 <CardActions>
                     <Button size="small">Learn More</Button>
