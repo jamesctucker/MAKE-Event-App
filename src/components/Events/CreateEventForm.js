@@ -36,33 +36,6 @@ const styles = theme => ({
 
 });
 
-const tag = [
-    {
-        value: 1,
-        label: 'React',
-    },
-    {
-        value: 2,
-        label: 'jQuery',
-    },
-    {
-        value: 3,
-        label: 'Node',
-    },
-    {
-        value: 4,
-        label: 'SQL',
-    },
-    {
-        value: 5,
-        label: 'Redux',
-    },
-    {
-        value: 6,
-        label: 'HTML',
-    },
-];
-
 class CreateEventForm extends Component {
     state = {
         name: 'Event Name',
@@ -82,9 +55,9 @@ class CreateEventForm extends Component {
 
 
 
-    handleAddProject = event => {
+    handleCreateEvent = event => {
         event.preventDefault();
-        const action = ({ type: 'ADD_PROJECT', payload: this.state });
+        const action = ({ type: 'CREATE_EVENT', payload: this.state });
         this.props.dispatch(action);
         swal('Awesome!', 'You have successfully added an event!', 'success');
         this.setState({
