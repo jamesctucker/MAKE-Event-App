@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { throws } from 'assert';
 
 class RegisterPage extends Component {
   state = {

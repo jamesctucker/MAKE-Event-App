@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import {
   HashRouter as Router,
   Route,
@@ -6,14 +8,12 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import { connect } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import Events from '../Events/Events';
 import EventInfo from '../Events/EventInfo';
@@ -46,7 +46,7 @@ class App extends Component {
               path="/news"
               component={News}
             />
-            <ProtectedRoute
+            <Route
               exact
               path="/add-news"
               component={AddNews}
@@ -64,7 +64,7 @@ class App extends Component {
             />
 
 
-            <ProtectedRoute
+            <Route
               exact
               path="/dashboard"
               component={Dashboard}
@@ -83,7 +83,7 @@ class App extends Component {
               component={EventInfo}
             />
 
-            <ProtectedRoute
+            <Route
               exact
               path="/create-event"
               component={CreateEvent}
@@ -95,7 +95,7 @@ class App extends Component {
               component={News}
             />
 
-            <ProtectedRoute
+            <Route
               exact
               path="/add-news"
               component={AddNews}
@@ -111,7 +111,7 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
-    )
+    );
   }
 }
 
