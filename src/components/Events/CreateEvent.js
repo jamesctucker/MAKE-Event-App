@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import CreateEventForm from './../Events/CreateEventForm';
 
 class CreateEvent extends Component {
     render() {
         return (
             <div>
-                <h1>Create Event</h1>
+                <CreateEventForm />
             </div>
         )
     }
 };
 
 
-export default CreateEvent;
+export default connect()(CreateEvent);
