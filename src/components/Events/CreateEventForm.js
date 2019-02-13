@@ -76,9 +76,6 @@ class CreateEventForm extends Component {
 
         return (
             <Paper id='text-paper' elevation={3}>
-                <Typography id='form-title' variant='h6'>
-                    Create An Event
-                    </Typography>
                 <form id='input-form' className={classes.container} noValidate autoComplete="off">
 
                     <TextField

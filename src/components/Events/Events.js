@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import EventsList from './../Events/EventsList';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import './Events.css';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -7,14 +11,29 @@ import axios from 'axios';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 class Events extends Component {
+
+  componentDidMount() {
+    const action = { type: 'FETCH_EVENTS' };
+    this.props.dispatch(action);
+  }
+
   render() {
     return (
-      <div>
-        <h1>Events</h1>
-      </div>
+      <Paper id="events-paper" elevation={3}>
+        <Grid container spacing={32}>
+          {this.props.reduxStore.events.map((result, i) => (
+            <EventsList key={i} result={result} />
+          ))}
+        </Grid>
+      </Paper>
+
     )
   }
 };
 
 
-export default Events;
+const mapStoreToProps = reduxStore => ({
+  reduxStore,
+});
+
+export default connect(mapStoreToProps)(Events);
