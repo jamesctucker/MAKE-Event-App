@@ -1,20 +1,19 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
-import { create } from 'domain';
 
 function* fetchEvents(action) {
     try {
-        const response = yield axios.get('/');
+        const response = yield axios.get('/api/events/get-events');
         const nextAction = { type: 'SET_EVENTS', payload: response.data };
         yield put(nextAction);
     } catch (error) {
-        console.log('Error with gettings tags saga.');
+        console.log('Error with gettings events saga.');
     }
 }
 
 function* createEvent(action) {
     try {
-        yield axios.post('/events', action.payload);
+        yield axios.post('/api/events', action.payload);
         const nextAction = { type: 'FETCH_EVENTS' };
         yield put(nextAction);
     }

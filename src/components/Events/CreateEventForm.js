@@ -38,16 +38,16 @@ const styles = theme => ({
 
 class CreateEventForm extends Component {
     state = {
-        name: 'Event Name',
-        start_date: 'Start Date (YYYY/MM/DD)',
-        end_date: 'End Date (YYYY/MM/DD)',
-        city: 'Event City',
-        country: 'Event Country',
-        host: 'Event Host',
-        description: 'Description',
+        event_name: 'Event Name',
+        event_start_date: 'Start Date (YYYY/MM/DD)',
+        event_end_date: 'End Date (YYYY/MM/DD)',
+        event_city: 'Event City',
+        event_country: 'Event Country',
+        event_host: 'Event Host',
+        event_description: 'Description',
     };
 
-    handleChange = propertyName => (event) => {
+    handleChange = propertyName => event => {
         this.setState({
             [propertyName]: event.target.value,
         });
@@ -61,13 +61,13 @@ class CreateEventForm extends Component {
         this.props.dispatch(action);
         swal('Awesome!', 'You have successfully added an event!', 'success');
         this.setState({
-            name: 'Event Name',
-            start_date: 'Start Date (YYYY/MM/DD)',
-            end_date: 'End Date (YYYY/MM/DD)',
-            city: 'Event City',
-            country: 'Event Country',
-            host: 'Event Host',
-            description: 'Description',
+            event_name: 'Event Name',
+            event_start_date: 'Start Date (YYYY/MM/DD)',
+            event_end_date: 'End Date (YYYY/MM/DD)',
+            event_city: 'Event City',
+            event_country: 'Event Country',
+            event_host: 'Event Host',
+            event_description: 'Description',
         });
     }
 
@@ -86,8 +86,8 @@ class CreateEventForm extends Component {
                         id="outlined-name"
                         label="Required"
                         className={classes.textField}
-                        value={this.state.name}
-                        onChange={this.handleChange('name')}
+                        value={this.state.event_name}
+                        onChange={this.handleChange('event_name')}
                         margin="normal"
                         variant="outlined"
                     />
@@ -96,8 +96,8 @@ class CreateEventForm extends Component {
                         id="outlined-start_date"
                         label="Required"
                         className={classes.textField}
-                        value={this.state.start_date}
-                        onChange={this.handleChange('start_date')}
+                        value={this.state.event_start_date}
+                        onChange={this.handleChange('event_start_date')}
                         margin="normal"
                         variant="outlined"
                     />
@@ -106,8 +106,8 @@ class CreateEventForm extends Component {
                         id="outlined-end-date"
                         label="Required"
                         className={classes.textField}
-                        value={this.state.end_date}
-                        onChange={this.handleChange('end_date')}
+                        value={this.state.event_end_date}
+                        onChange={this.handleChange('event_end_date')}
                         variant='outlined'
                         margin="normal"
                     />
@@ -116,8 +116,8 @@ class CreateEventForm extends Component {
                         id="outlined-city"
                         label="Required"
                         className={classes.textField}
-                        value={this.state.city}
-                        onChange={this.handleChange('city')}
+                        value={this.state.event_city}
+                        onChange={this.handleChange('event_city')}
                         margin="normal"
                         variant="outlined"
                     />
@@ -126,8 +126,8 @@ class CreateEventForm extends Component {
                         id="outlined-country"
                         label="Required"
                         className={classes.textField}
-                        value={this.state.country}
-                        onChange={this.handleChange('country')}
+                        value={this.state.event_country}
+                        onChange={this.handleChange('event_country')}
                         margin="normal"
                         variant="outlined"
                     />
@@ -136,8 +136,8 @@ class CreateEventForm extends Component {
                         id="outlined-host"
                         label="Required"
                         className={classes.textField}
-                        value={this.state.host}
-                        onChange={this.handleChange('host')}
+                        value={this.state.event_host}
+                        onChange={this.handleChange('event_host')}
                         margin="normal"
                         variant="outlined"
                     />
@@ -146,13 +146,13 @@ class CreateEventForm extends Component {
                         id="outlined-description"
                         label="Required"
                         className={classes.descriptionField}
-                        value={this.state.description}
-                        onChange={this.handleChange('description')}
+                        value={this.state.event_description}
+                        onChange={this.handleChange('event_description')}
                         margin="normal"
                         variant="outlined"
                     />
                     <Button className={classes.button} id='submit-btn'
-                        onClick={this.handleAddProject} variant='contained'>Submit</Button>
+                        onClick={this.handleCreateEvent} variant='contained'>Submit</Button>
 
                 </form>
             </Paper>
