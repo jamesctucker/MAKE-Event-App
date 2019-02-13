@@ -29,11 +29,12 @@ CREATE TABLE "applicant_openings" (
 	"role" varchar NOT NULL,
 	"description" varchar NOT NULL,
 	"requirements" varchar NOT NULL,
-	"event_id" bigint NOT NULL,
+	"event_id" int NOT NULL,
 	CONSTRAINT applicant_openings_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
+
 
 
 
@@ -67,7 +68,7 @@ CREATE TABLE "volunteer" (
 	"person_id" int NOT NULL,
 	"preferred_transportation" varchar NOT NULL,
 	"comments" varchar NOT NULL,
-	"role_id" bigint NOT NULL,
+	"role_id" int NOT NULL,
 	CONSTRAINT volunteer_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -94,15 +95,15 @@ CREATE TABLE "person" (
 	"email" varchar NOT NULL,
 	"phone" varchar(20),
 	"hometown" varchar NOT NULL,
-	"country_id" int NOT NULL,
-	"gender_id" int NOT NULL,
+	"country_id" int NOT NULL UNIQUE,
+	"gender" int NOT NULL UNIQUE,
 	"facebook_username" varchar,
-	"employer" varchar,
-	"job_title" varchar,
+	"place_of_employment" varchar,
+	"job title" varchar,
 	"food_preferences" varchar NOT NULL,
 	"preferred_transportation" varchar(16) NOT NULL,
 	"comments" varchar(16) NOT NULL,
-	"auth_id" bigint NOT NULL,
+	"auth_id" int NOT NULL,
 	CONSTRAINT person_pk PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -118,6 +119,34 @@ CREATE TABLE "registration" (
 ) WITH (
   OIDS=FALSE
 );
+
+
+
+ALTER TABLE "events" ADD CONSTRAINT "events_fk0" FOREIGN KEY ("person_id") REFERENCES "person"("id");
+
+ALTER TABLE "volunteer_openings" ADD CONSTRAINT "volunteer_openings_fk0" FOREIGN KEY ("event_id") REFERENCES "events"("id");
+
+ALTER TABLE "applicant_openings" ADD CONSTRAINT "applicant_openings_fk0" FOREIGN KEY ("event_id") REFERENCES "events"("id");
+
+
+
+ALTER TABLE "applicant" ADD CONSTRAINT "applicant_fk0" FOREIGN KEY ("person_id") REFERENCES "person"("id");
+ALTER TABLE "applicant" ADD CONSTRAINT "applicant_fk1" FOREIGN KEY ("role_id") REFERENCES "applicant_openings"("id");
+
+ALTER TABLE "volunteer" ADD CONSTRAINT "volunteer_fk0" FOREIGN KEY ("person_id") REFERENCES "person"("id");
+ALTER TABLE "volunteer" ADD CONSTRAINT "volunteer_fk1" FOREIGN KEY ("role_id") REFERENCES "volunteer_openings"("id");
+
+
+ALTER TABLE "person" ADD CONSTRAINT "person_fk0" FOREIGN KEY ("country_id") REFERENCES "countries"("id");
+ALTER TABLE "person" ADD CONSTRAINT "person_fk1" FOREIGN KEY ("gender") REFERENCES "genders"("id");
+ALTER TABLE "person" ADD CONSTRAINT "person_fk2" FOREIGN KEY ("auth_id") REFERENCES "auth"("id");
+
+ALTER TABLE "registration" ADD CONSTRAINT "registration_fk0" FOREIGN KEY ("person_id") REFERENCES "person"("id");
+ALTER TABLE "registration" ADD CONSTRAINT "registration_fk1" FOREIGN KEY ("event_id") REFERENCES "events"("id");
+
+
+
+
 
 
 CREATE TABLE "countries" (
@@ -658,11 +687,11 @@ ALTER TABLE "person" ADD CONSTRAINT "person_fk3" FOREIGN KEY ("auth_id") REFEREN
 ALTER TABLE "registration" ADD CONSTRAINT "registration_fk0" FOREIGN KEY ("person_id") REFERENCES "person"("id");
 ALTER TABLE "registration" ADD CONSTRAINT "registration_fk1" FOREIGN KEY ("event_id") REFERENCES "events"("id");
   
-INSERT INTO "public"."auth"("id", "type") VALUES(1, 'Superuser') RETURNING "id", "type";
-INSERT INTO "public"."auth"("id", "type") VALUES(2, 'User') RETURNING "id", "type";
+ALTER TABLE "public"."person" RENAME COLUMN "gender" TO "gender_id";
 ALTER TABLE "public"."person" ALTER COLUMN "auth_id" SET DEFAULT 2;
-
-
+  
+ALTER TABLE "public"."person" RENAME COLUMN "place_of_employment" TO "employer";
+ALTER TABLE "public"."person" RENAME COLUMN "job title" TO "job_title";
 
 
 
