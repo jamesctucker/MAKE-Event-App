@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/get-events', (req, res) => {
-    const queryText = `SELECT "event_name", "event_start_date", "event_end_date",
+    const queryText = `SELECT "id", "event_name", "event_start_date", "event_end_date",
                         "event_city", "event_country", "event_host", "event_description"
                         FROM "events"`;
     pool.query(queryText)

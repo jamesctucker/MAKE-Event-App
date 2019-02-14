@@ -60,7 +60,7 @@ class Dashboard extends Component {
                             <MenuItem value="">
                                 <em>None</em>
                             </MenuItem>
-                            {this.props.reduxStore.events.map((result, i) => (
+                            {this.props.reduxStore.events.map((result) => (
                                 <MenuItem value={result.id}>
                                     {result.event_name}
                                 </MenuItem>
