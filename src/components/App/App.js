@@ -18,7 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import Events from '../Events/Events';
 import EventInfo from '../Events/EventInfo';
 import CreateEvent from '../Events/CreateEvent';
-import Dashboard from '../Admin/Dashboard';
+import Dashboard from './../Admin/Dashboard/Dashboard';
 import News from '../News/News';
 import AddNews from '../News/AddNews';
 
@@ -38,7 +38,7 @@ class App extends Component {
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/home" />
+            <Redirect exact from="/" to="/account" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
             <Route
@@ -59,7 +59,7 @@ class App extends Component {
             Even though it seems like they are different pages, the user is always on localhost:3000/home */}
             <ProtectedRoute
               exact
-              path="/home"
+              path="/account"
               component={UserPage}
             />
 

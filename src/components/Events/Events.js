@@ -19,10 +19,17 @@ class Events extends Component {
 
   render() {
     return (
-      <Paper id="events-paper" elevation={3}>
-        <Grid container spacing={32}>
+      <Paper id="events-paper" elevation={3}
+      >
+        <Grid
+          container
+          direction="row"
+          justify="space-evenly"
+          alignItems="center"
+        >
           {this.props.reduxStore.events.map((result, i) => (
-            <EventsList key={i} result={result} />
+
+            <EventsList history={this.props.history} key={i} result={result} />
           ))}
         </Grid>
       </Paper>

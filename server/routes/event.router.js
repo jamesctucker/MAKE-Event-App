@@ -6,11 +6,14 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    const queryText = `SELECT "name", "dob", "email", "phone", 
-                        "hometown", "country_id", "gender_id", "facebook_username", 
-                        "employer", "job_title", "food_preferences", 
-                        "preferred_transportation", "comments"
-                         FROM "person"`;
+    const queryText = `SELECT "countries"."country_name", "person"."name", "person"."dob", "person"."email",
+    "person"."phone", "person"."hometown", "genders"."gender", "person"."facebook_username", "person"."employer",
+    "person"."job_title", "person"."food_preferences", "person"."preferred_transportation", "person"."comments"
+    FROM "countries" 
+        JOIN "person"
+            ON "countries"."id"="person"."country_id"
+        JOIN "genders"
+            ON "genders"."id"="person"."gender_id";`;
     pool.query(queryText)
         .then((result) => { res.send(result.rows); })
         .catch((error) => {
@@ -30,6 +33,11 @@ router.get('/get-events', (req, res) => {
             res.sendStatus(500);
         });
 })
+
+// "name", "dob", "email", "phone", 
+//                         "hometown", "country_id", "gender_id", "facebook_username", 
+//                         "employer", "job_title", "food_preferences", 
+//                         "preferred_transportation", "comments"
 
 router.post('/', (req, res) => {
     const createEvent = req.body;
@@ -52,6 +60,18 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         });
 });
+
+// router.delete
+// const queryText = `DELETE FROM projects WHERE id=$1`;
+// pool.query(queryText, [req.params.id])
+//     .then((response) => {
+//         console.log(`server response: ${response}`);
+//         res.sendStatus(201);
+//     }).catch((error) => {
+//         console.log(`Problem with deleting project: ${error}`);
+//         res.sendStatus(500);
+//     })
+//     });
 
 
 // JOIN "hobby" ON "hobby"."id" = "person_hobby"."hobby_id";

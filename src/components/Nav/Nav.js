@@ -10,12 +10,6 @@ const Nav = (props) => (
       <h2 className="nav-title">MAKE Events</h2>
     </Link>
     <div className="nav-right">
-      <Link className="nav-link" to="/home">
-        {/* Show this link if they are logged in or not,
-        but call this link 'Home' if they are logged in,
-        and call this link 'Login / Register' if they are not */}
-        {props.user.id ? 'Home' : 'Login / Register'}
-      </Link>
       <Link className="nav-link" to="/dashboard">
         Dashboard
       </Link>
@@ -26,6 +20,12 @@ const Nav = (props) => (
       {/* Always show this link since the about page is not protected */}
       <Link className="nav-link" to="/news">
         News
+      </Link>
+      <Link className="nav-link" to="/account">
+        {/* Show this link if they are logged in or not,
+        but call this link 'Home' if they are logged in,
+        and call this link 'Login / Register' if they are not */}
+        {props.user.id ? 'Account' : 'Login / Register'}
       </Link>
       <LogOutButton className="nav-link" />
     </div>

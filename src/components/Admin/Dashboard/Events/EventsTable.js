@@ -10,7 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
-import AttendeeTableRow from '../Admin/AttendeeTableRow';
+import EventsTableRow from './EventsTableRow';
 import IconButton from '@material-ui/core/IconButton';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
@@ -39,10 +39,10 @@ const styles = theme => ({
 });
 
 
-class AttendeeTable extends Component {
+class EventsTable extends Component {
 
     componentDidMount() {
-        const action = { type: 'FETCH_ATTENDEES' };
+        const action = { type: 'FETCH_EVENTS' };
         console.log(action);
         this.props.dispatch(action);
     }
@@ -58,23 +58,15 @@ class AttendeeTable extends Component {
                         <TableHead>
                             <TableRow>
                                 <TableCell align="right">Name</TableCell>
-                                <TableCell align="right">DOB</TableCell>
-                                <TableCell align="right">Email</TableCell>
-                                <TableCell align="right">Phone</TableCell>
-                                <TableCell align="right">Hometown</TableCell>
-                                <TableCell align="right">Country</TableCell>
-                                <TableCell align="right">Gender</TableCell>
-                                <TableCell align="right">Social Handle(s)</TableCell>
-                                <TableCell align="right">Employer</TableCell>
-                                <TableCell align="right">Job Title</TableCell>
-                                <TableCell align="right">Food Preferences</TableCell>
-                                <TableCell align="right">Preferred Transportation</TableCell>
-                                <TableCell align="right">Comments</TableCell>
+                                <TableCell align="right">Start Date</TableCell>
+                                <TableCell align="right">End Date</TableCell>
+                                <TableCell align="right">Location</TableCell>
+                                <TableCell align="right">Remove</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.props.reduxStore.attendees.map((result, i) => (
-                                <AttendeeTableRow key={i} result={result} />
+                            {this.props.reduxStore.events.map((result, i) => (
+                                <EventsTableRow key={i} result={result} />
                             ))}
                         </TableBody>
                     </Table>
@@ -90,4 +82,4 @@ class AttendeeTable extends Component {
 
 
 const mapStoreToProps = (reduxStore) => ({ reduxStore })
-export default connect(mapStoreToProps)(withStyles(styles)(AttendeeTable));
+export default connect(mapStoreToProps)(withStyles(styles)(EventsTable));

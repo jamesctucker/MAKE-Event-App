@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import DashboardTableTabs from '../Admin/DashboardTableTabs';
+import DashboardTableTabs from './../Dashboard/DashboardTableTabs';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import InputLabel from '@material-ui/core/InputLabel';

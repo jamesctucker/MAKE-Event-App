@@ -19,8 +19,8 @@ class AttendeeTableRow extends Component {
                 <TableCell align="right">{this.props.result.email}</TableCell>
                 <TableCell align="right">{this.props.result.phone}</TableCell>
                 <TableCell align="right">{this.props.result.hometown}</TableCell>
-                <TableCell align="right">{this.props.result.country_id}</TableCell>
-                <TableCell align="right">{this.props.result.gender_id}</TableCell>
+                <TableCell align="right">{this.props.result.country_name}</TableCell>
+                <TableCell align="right">{this.props.result.gender}</TableCell>
                 <TableCell align="right">{this.props.result.facebook_username}</TableCell>
                 <TableCell align="right">{this.props.result.employer}</TableCell>
                 <TableCell align="right">{this.props.result.job_title}</TableCell>

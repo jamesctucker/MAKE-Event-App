@@ -1,10 +1,24 @@
-#list-card {
-    max-width: 200px;
-    max-height: 200px;
+/* #list-card {
+    max-width: 300px;
+    max-height: 600px;
+    margin: 10px;
     padding: 10px;
-    margin: 5px;
-    justify-content: space-between;
+} */
+
+#description-body{
+    padding: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+    text-align: center;
+
 }
+
+
+
+/* #register-btn{
+    margin-right: 50px;
+    margin-left: auto;
+} */
 
 /* #event-name {
     text-align: left;
