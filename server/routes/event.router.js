@@ -74,7 +74,7 @@ router.post('/', (req, res) => {
 //     });
 
 
-// JOIN "hobby" ON "hobby"."id" = "person_hobby"."hobby_id";
+
 
 
 
