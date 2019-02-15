@@ -4,6 +4,7 @@ import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import dashboardSaga from './dashboardSaga';
 import eventSaga from './eventSaga';
+import miscDataSaga from './miscDataSaga';
 
 
 // rootSaga is the primary saga.
@@ -15,6 +16,7 @@ import eventSaga from './eventSaga';
 // and login triggers setting the user
 export default function* rootSaga() {
   yield all([
+    miscDataSaga(),
     dashboardSaga(),
     eventSaga(),
     loginSaga(),

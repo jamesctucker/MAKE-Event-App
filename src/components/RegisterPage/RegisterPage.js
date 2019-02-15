@@ -6,28 +6,51 @@ import Button from '@material-ui/core/Button';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
+import './RegisterPage.css';
+
+const genders = [
+  {
+    value: 1,
+    label: 'Male',
+  },
+  {
+    value: 2,
+    label: 'Female',
+  },
+  {
+    value: 3,
+    label: 'Other',
+  },
+]
 
 class RegisterPage extends Component {
-  state = {
-    username: '',
-    password: '',
-    name: '',
-    dob: '',
-    email: '',
-    phone: '',
-    hometown: '',
-    country_id: '',
-    gender_id: '',
-    facebook_username: '',
-    employer: '',
-    job_title: '',
-    food_preferences: '',
-    preferred_transportation: '',
-    comments: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+      name: '',
+      dob: '',
+      email: '',
+      phone: '',
+      hometown: '',
+      country_id: '',
+      gender_id: 'Select Gender',
+      facebook_username: '',
+      employer: '',
+      job_title: '',
+      food_preferences: '',
+      preferred_transportation: '',
+      comments: '',
+    }
+  }
+
+
+
 
   registerUser = (event) => {
     event.preventDefault();
+
 
     if (this.state.username && this.state.password) {
       this.props.dispatch({
@@ -168,24 +191,20 @@ class RegisterPage extends Component {
               Gender:
               </InputLabel>
             <Select
-              type="text"
-              name="gender"
               value={this.state.gender_id}
               onChange={this.handleInputChangeFor('gender_id')}
-              input={<Input name="gender_id" id="event-dropdown" />}
-              >
+              displayEmpty
+              name="gender"
+            >
               <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            {this.props.reduxStore.events.map((result) => (
-                                <MenuItem value={result.id}>
-                                    {result.event_name}
-                                </MenuItem>
-
-
-                            ))}
-                        </Select>
-              </Select>
+                <em>None</em>
+              </MenuItem>
+              {genders.map(option => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
           </div>
           <div>
             <InputLabel htmlFor="facebook_username">
@@ -272,16 +291,21 @@ class RegisterPage extends Component {
           </Button>
         </center>
       </div>
-    );
+    )
   }
-}
+};
 
-// Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
-const mapStateToProps = state => ({
-  errors: state.errors,
-});
+// // Instead of taking everything from state, we just want the error messages.
+// // if you wanted you could write this code like this:
+// const mapStateToProps = ({ errors }) => ({ errors });
 
-export default connect(mapStateToProps)(RegisterPage);
+// // const mapStateToProps = state => ({
+// //   errors: state.errors,
+// // });
+
+// export default connect(mapStateToProps)(RegisterPage);
+
+const mapStoreToProps = reduxStore => errors => ({ reduxStore, errors });
+
+export default connect(mapStoreToProps)(RegisterPage);
 
