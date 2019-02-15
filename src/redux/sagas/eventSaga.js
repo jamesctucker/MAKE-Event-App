@@ -22,10 +22,20 @@ function* createEvent(action) {
     }
 }
 
+function* deleteEvent(action) {
+    try {
+        yield axios.delete(`/api/events/${action.payload}`);
+        yield put({ type: "FETCH_EVENTS" });
+    }
+    catch (error) {
+        yield console.log('error deleteEvents saga', error);
+    }
+}
+
 function* eventSaga() {
     yield takeLatest('FETCH_EVENTS', fetchEvents);
     yield takeLatest('CREATE_EVENT', createEvent);
-
+    yield takeLatest('DELETE_EVENT', deleteEvent);
 }
 
 export default eventSaga;
