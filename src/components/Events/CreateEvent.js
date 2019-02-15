@@ -17,7 +17,7 @@ class CreateEvent extends Component {
                 <Typography id='form-title' variant='h6'>
                     Create An Event
                 </Typography>
-                <Button onClick={this.changePage} variant="contained">Cancel</Button>
+                <Button onClick={this.changePage} variant="contained">Return to Dashboard</Button>
                 <CreateEventForm />
             </div>
         )
