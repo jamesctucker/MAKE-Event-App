@@ -5,6 +5,9 @@ import user from './userReducer';
 import attendees from './dashboardReducer';
 import events from './eventReducer';
 import genders from './miscDataReducer';
+import countries from './miscDataReducer';
+
+
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +22,7 @@ const rootReducer = combineReducers({
   attendees,
   events,
   genders,
+  countries,
 });
 
 export default rootReducer;

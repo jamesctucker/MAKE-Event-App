@@ -21,7 +21,126 @@ const genders = [
     value: 3,
     label: 'Other',
   },
-]
+];
+
+const countries = [
+  {
+    value: 18,
+    label: 'Bangladesh',
+  },
+  {
+    value: 25,
+    label: 'Bhutan',
+  },
+  {
+    value: 32,
+    label: 'Brunei',
+  },
+  {
+    value: 36,
+    label: 'Cambodia',
+  },
+  {
+    value: 44,
+    label: 'China',
+  },
+  {
+    value: 96,
+    label: 'Hong Kong',
+  },
+  {
+    value: 99,
+    label: 'India',
+  },
+  {
+    value: 100,
+    label: 'Indonesia',
+  },
+  {
+    value: 107,
+    label: 'Japan',
+  },
+  {
+    value: 112,
+    label: 'Korea, North',
+  },
+  {
+    value: 113,
+    label: 'Korea, South',
+  },
+  {
+    value: 116,
+    label: 'Laos',
+  },
+  {
+    value: 125,
+    label: 'Macao',
+  },
+  {
+    value: 129,
+    label: 'Malaysia',
+  },
+  {
+    value: 146,
+    label: 'Myanmar',
+  },
+  {
+    value: 149,
+    label: 'Nepal',
+  },
+  {
+    value: 162,
+    label: 'Pakistan',
+  },
+  {
+    value: 166,
+    label: 'Papua New Guinea',
+  },
+  {
+    value: 169,
+    label: 'Philippines',
+  },
+  {
+    value: 192,
+    label: 'Singapore',
+  },
+  {
+    value: 200,
+    label: 'Sri Lanka',
+  },
+  {
+    value: 208,
+    label: 'Taiwan',
+  },
+  {
+    value: 211,
+    label: 'Thailand',
+  },
+  {
+    value: 218,
+    label: 'Turkey',
+  },
+  {
+    value: 219,
+    label: 'Turkmenistan',
+  },
+  {
+    value: 225,
+    label: 'United Kingdom',
+  },
+  {
+    value: 226,
+    label: 'United States',
+  },
+  {
+    value: 232,
+    label: 'Vietnam',
+  },
+  {
+    value: 0,
+    label: 'Other',
+  },
+];
 
 class RegisterPage extends Component {
   constructor(props) {
@@ -45,7 +164,9 @@ class RegisterPage extends Component {
     }
   }
 
-
+  // componentDidMount = () => {
+  //   this.props.dispatch({ type: 'FETCH_COUNTRIES' });
+  // }
 
 
   registerUser = (event) => {
@@ -87,12 +208,12 @@ class RegisterPage extends Component {
   render() {
     return (
       <div>
-        {this.props.errors.registrationMessage && (
+        {this.props.reduxStore.errors.registrationMessage && (
           <h2
             className="alert"
             role="alert"
           >
-            {this.props.errors.registrationMessage}
+            {this.props.reduxStore.errors.registrationMessage}
           </h2>
         )}
         <form onSubmit={this.registerUser}>
@@ -176,15 +297,26 @@ class RegisterPage extends Component {
             />
           </div>
           <div>
-            <InputLabel htmlFor="country">
-              Country:
-              </InputLabel>
-            <Input
-              type="text"
-              name="country_id"
-              value={this.state.country_id}
-              onChange={this.handleInputChangeFor('country_id')}
-            />
+            <FormControl>
+              <InputLabel shrink htmlFor="country-dropdown">
+                Select Country
+                        </InputLabel>
+              <Select
+                value={this.state.country_id}
+                onChange={this.handleInputChangeFor('country_id')}
+                input={<Input name="country" id="country-dropdown" />}
+                displayEmpty
+                name="country"
+              >
+                {countries.map(result => (
+                  <MenuItem key={result.value} value={result.value}>
+                    {result.label}
+                  </MenuItem>
+
+
+                ))}
+              </Select>
+            </FormControl>
           </div>
           <div>
             <InputLabel htmlFor="gender">
@@ -299,13 +431,17 @@ class RegisterPage extends Component {
 // // if you wanted you could write this code like this:
 // const mapStateToProps = ({ errors }) => ({ errors });
 
-// // const mapStateToProps = state => ({
-// //   errors: state.errors,
-// // });
+// const mapStateToProps = state => ({
+//   errors: state.errors,
+//   countries: state.countries,
+//   genders: state.genders,
+// });
 
-// export default connect(mapStateToProps)(RegisterPage);
+// // export default connect(mapStateToProps)(RegisterPage);
 
-const mapStoreToProps = reduxStore => errors => ({ reduxStore, errors });
+const mapStoreToProps = reduxStore => ({
+  reduxStore,
+});
 
 export default connect(mapStoreToProps)(RegisterPage);
 

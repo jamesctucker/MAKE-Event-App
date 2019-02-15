@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 const genders = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENDERS':
@@ -7,5 +9,17 @@ const genders = (state = [], action) => {
     }
 }
 
+const countries = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_COUNTRIES':
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
-export default genders;
+
+export default combineReducers({
+    genders,
+    countries,
+});
