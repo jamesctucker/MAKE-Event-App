@@ -73,6 +73,22 @@ router.delete('/:id', (req, res) => {
         })
 });
 
+router.post('/register', (req, res) => {
+    const registerEvent = req.body;
+    const queryText = `INSERT INTO "registration" ("person_id", "event_id")                   
+                    VALUES ($1, $2);`;
+    const queryValues = [
+        registerEvent.person_id,
+        registerEvent.event_id,
+    ];
+    pool.query(queryText, queryValues)
+        .then(() => { res.sendStatus(201); })
+        .catch((err) => {
+            console.log('error in event registration post', err);
+            res.sendStatus(500);
+        });
+});
+
 
 
 

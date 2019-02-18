@@ -1,14 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
-import LogOutButton from '../LogOutButton/LogOutButton';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -32,7 +28,7 @@ const UserPage = (props) => (
 
 
     <div>
-      <Button variant='contained'>Submit Changes</Button>
+      <Button variant='contained'>Update Profile</Button>
     </div>
   </div>
 );

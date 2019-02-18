@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AttendeeTable from './../Dashboard/Attendees/AttendeeTable';
+// import AttendeeTableTest from './../Dashboard/Attendees/AttendeeTableTest';
+
+
+
 import EventsTable from './../Dashboard/Events/EventsTable';
 
 

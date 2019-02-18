@@ -14,6 +14,7 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import red from '@material-ui/core/colors/red';
 import Grid from '@material-ui/core/Grid';
+import EventDialog from './EventDialog';
 
 import './EventsList.css';
 
@@ -94,7 +95,8 @@ class EventsList extends Component {
                                 {this.props.result.event_description}
                             </Typography>
                             <CardActions className={classes.actions} disableActionSpacing>
-                                <Button id="register-btn" size="small" variant="contained">Register</Button>
+                                <EventDialog />
+                                {/* <Button value={this.props.result.id} id="register-btn" size="small" variant="contained">Register</Button> */}
                             </CardActions>
                         </CardContent>
                     </Collapse>

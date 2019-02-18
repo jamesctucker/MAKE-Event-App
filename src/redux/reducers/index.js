@@ -4,6 +4,7 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import attendees from './dashboardReducer';
 import events from './eventReducer';
+import registered from './registerReducer';
 import genders from './miscDataReducer';
 import countries from './miscDataReducer';
 
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   attendees,
   events,
+  registered,
   genders,
   countries,
 });

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* fetchEvents(action) {
+function* fetchEvents() {
     try {
         const response = yield axios.get('/api/events/get-events');
         const nextAction = { type: 'SET_EVENTS', payload: response.data };
@@ -32,10 +32,23 @@ function* deleteEvent(action) {
     }
 }
 
+function* registerForEvent(action) {
+    try {
+        yield axios.post('/api/events/register', action.payload);
+        const nextAction = { type: 'FETCH_EVENTS' };
+        yield put(nextAction);
+    }
+    catch (error) {
+        yield console.log('error in registerForEvent saga', error);
+    }
+}
+
 function* eventSaga() {
     yield takeLatest('FETCH_EVENTS', fetchEvents);
     yield takeLatest('CREATE_EVENT', createEvent);
     yield takeLatest('DELETE_EVENT', deleteEvent);
+    yield takeLatest('REGISTER_FOR_EVENT', registerForEvent);
+
 }
 
 export default eventSaga;
