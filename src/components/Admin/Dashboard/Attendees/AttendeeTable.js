@@ -1,90 +1,90 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import Paper from '@material-ui/core/Paper';
-import AttendeeTableRow from './AttendeeTableRow';
+// import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+// import PropTypes from 'prop-types';
+// import { withStyles } from '@material-ui/core/styles';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import Input from '@material-ui/core/Input';
+// import Table from '@material-ui/core/Table';
+// import TableBody from '@material-ui/core/TableBody';
+// import TableHead from '@material-ui/core/TableHead';
+// import TableRow from '@material-ui/core/TableRow';
+// import TableCell from '@material-ui/core/TableCell';
+// import Paper from '@material-ui/core/Paper';
+// import AttendeeTableRow from './AttendeeTableRow';
 
 
-const actionsStyles = theme => ({
-    root: {
-        flexShrink: 0,
-        color: theme.palette.text.secondary,
-        marginLeft: theme.spacing.unit * 2.5,
-    },
-});
+// const actionsStyles = theme => ({
+//     root: {
+//         flexShrink: 0,
+//         color: theme.palette.text.secondary,
+//         marginLeft: theme.spacing.unit * 2.5,
+//     },
+// });
 
-const styles = theme => ({
-    root: {
-        width: '100%',
-        marginTop: theme.spacing.unit * 3,
-    },
-    table: {
-        minWidth: 1200,
-    },
-    tableWrapper: {
-        overflowX: 'auto',
-    },
-});
-
-
-class AttendeeTable extends Component {
-
-    componentDidMount() {
-        const action = { type: 'FETCH_ATTENDEES' };
-        console.log(action);
-        this.props.dispatch(action);
-    }
+// const styles = theme => ({
+//     root: {
+//         width: '100%',
+//         marginTop: theme.spacing.unit * 3,
+//     },
+//     table: {
+//         minWidth: 1200,
+//     },
+//     tableWrapper: {
+//         overflowX: 'auto',
+//     },
+// });
 
 
-    render() {
-        const { classes } = this.props;
+// class AttendeeTable extends Component {
+
+//     componentDidMount() {
+//         const action = { type: 'FETCH_ATTENDEES' };
+//         console.log(action);
+//         this.props.dispatch(action);
+//     }
 
 
-        return (
-            <Paper className={classes.root} >
-                <div className={classes.tableWrapper}>
-                    <Table className={classes.table}>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell align="right">Name</TableCell>
-                                <TableCell align="right">DOB</TableCell>
-                                <TableCell align="right">Email</TableCell>
-                                <TableCell align="right">Phone</TableCell>
-                                <TableCell align="right">Hometown</TableCell>
-                                <TableCell align="right">Country</TableCell>
-                                <TableCell align="right">Gender</TableCell>
-                                <TableCell align="right">Social Handle(s)</TableCell>
-                                <TableCell align="right">Employer</TableCell>
-                                <TableCell align="right">Job Title</TableCell>
-                                <TableCell align="right">Food Preferences</TableCell>
-                                <TableCell align="right">Preferred Transportation</TableCell>
-                                <TableCell align="right">Comments</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {this.props.reduxStore.attendees.map((result, i) => (
-                                <AttendeeTableRow key={i} result={result} />
-                            ))}
-                        </TableBody>
-                    </Table>
-                </div>
-            </Paper>
-
-        );
-    }
-};
+//     render() {
+//         const { classes } = this.props;
 
 
+//         return (
+//             <Paper className={classes.root} >
+//                 <div className={classes.tableWrapper}>
+//                     <Table className={classes.table}>
+//                         <TableHead>
+//                             <TableRow>
+//                                 <TableCell align="right">Name</TableCell>
+//                                 <TableCell align="right">DOB</TableCell>
+//                                 <TableCell align="right">Email</TableCell>
+//                                 <TableCell align="right">Phone</TableCell>
+//                                 <TableCell align="right">Hometown</TableCell>
+//                                 <TableCell align="right">Country</TableCell>
+//                                 <TableCell align="right">Gender</TableCell>
+//                                 <TableCell align="right">Social Handle(s)</TableCell>
+//                                 <TableCell align="right">Employer</TableCell>
+//                                 <TableCell align="right">Job Title</TableCell>
+//                                 <TableCell align="right">Food Preferences</TableCell>
+//                                 <TableCell align="right">Preferred Transportation</TableCell>
+//                                 <TableCell align="right">Comments</TableCell>
+//                             </TableRow>
+//                         </TableHead>
+//                         <TableBody>
+//                             {this.props.reduxStore.attendees.map((result, i) => (
+//                                 <AttendeeTableRow key={i} result={result} />
+//                             ))}
+//                         </TableBody>
+//                     </Table>
+//                 </div>
+//             </Paper>
+
+//         );
+//     }
+// };
 
 
 
-const mapStoreToProps = (reduxStore) => ({ reduxStore })
-export default connect(mapStoreToProps)(withStyles(styles)(AttendeeTable));
+
+
+// const mapStoreToProps = (reduxStore) => ({ reduxStore })
+// export default connect(mapStoreToProps)(withStyles(styles)(AttendeeTable));

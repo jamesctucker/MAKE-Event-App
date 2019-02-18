@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AttendeeTable from './../Dashboard/Attendees/AttendeeTable';
-// import AttendeeTableTest from './../Dashboard/Attendees/AttendeeTableTest';
+// import AttendeeTable from './../Dashboard/Attendees/AttendeeTable';
+import AttendeeTableTest from './../Dashboard/Attendees/AttendeeTableTest';
 
 
 
@@ -58,7 +58,7 @@ class DashboardTableTabs extends Component {
 
                     </Tabs>
                 </AppBar>
-                {value === 0 && <TabContainer><AttendeeTable /></TabContainer>}
+                {value === 0 && <TabContainer><AttendeeTableTest /></TabContainer>}
                 {value === 1 && <TabContainer>Volunteers</TabContainer>}
                 {value === 2 && <TabContainer>Applications</TabContainer>}
                 {value === 3 && <TabContainer><EventsTable /></TabContainer>}

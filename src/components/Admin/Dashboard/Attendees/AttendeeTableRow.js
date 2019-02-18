@@ -1,38 +1,23 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
+// import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+// import TableRow from '@material-ui/core/TableRow';
+// import TableCell from '@material-ui/core/TableCell';
 
 
-class AttendeeTableRow extends Component {
-
-    // getAttendees = () => {
-    //     const action = { type: 'FETCH_ATTENDEES' };
-    //     this.props.dispatch(action);
-    // }
-
-    render() {
-        return (
-            <TableRow>
-                <TableCell align="right">{this.props.result.name}</TableCell>
-                <TableCell align="right">{this.props.result.dob}</TableCell>
-                <TableCell align="right">{this.props.result.email}</TableCell>
-                <TableCell align="right">{this.props.result.phone}</TableCell>
-                <TableCell align="right">{this.props.result.hometown}</TableCell>
-                <TableCell align="right">{this.props.result.country_name}</TableCell>
-                <TableCell align="right">{this.props.result.gender}</TableCell>
-                <TableCell align="right">{this.props.result.facebook_username}</TableCell>
-                <TableCell align="right">{this.props.result.employer}</TableCell>
-                <TableCell align="right">{this.props.result.job_title}</TableCell>
-                <TableCell align="right">{this.props.result.food_preferences}</TableCell>
-                <TableCell align="right">{this.props.result.preferred_transportation}</TableCell>
-                <TableCell align="right">{this.props.result.comments}</TableCell>
-            </TableRow>
-        )
-    }
-};
+// function AttendeeTableRow() {
+//     const rowData =
+//     {
+//         name: this.props.result.name, dob: this.props.result.dob, email: this.props.result.email,
+//         phone: this.props.result.phone, hometown: this.props.result.hometown,
+//         country: this.props.result.country_id, gender: this.props.result.gender_id,
+//         social_handles: this.props.result.facebook_username, employer: this.props.result.employer,
+//         job_title: this.props.result.job_title, food_preferences: this.props.result.food_preferences,
+//         preferred_transportation: this.props.result.preferred_transportation, comments: this.props.result.comments
+//     }
+//     return rowData;
+// };
 
 
 
-const mapStoreToProps = reduxStore => ({ reduxStore, });
-export default connect(mapStoreToProps)(AttendeeTableRow);
+// const mapStoreToProps = reduxStore => ({ reduxStore, });
+// export default connect(mapStoreToProps)(AttendeeTableRow);
