@@ -95,7 +95,7 @@ class EventsList extends Component {
                                 {this.props.result.event_description}
                             </Typography>
                             <CardActions className={classes.actions} disableActionSpacing>
-                                <EventDialog />
+                                <EventDialog event_id={this.props.result.id} />
                                 {/* <Button value={this.props.result.id} id="register-btn" size="small" variant="contained">Register</Button> */}
                             </CardActions>
                         </CardContent>

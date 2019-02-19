@@ -16,7 +16,6 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import UserPage from '../UserPage/UserPage';
 import Events from '../Events/Events';
-import EventInfo from '../Events/EventInfo';
 import CreateEvent from '../Events/CreateEvent';
 import Dashboard from './../Admin/Dashboard/Dashboard';
 import News from '../News/News';
@@ -77,11 +76,6 @@ class App extends Component {
               component={Events}
             />
 
-            <Route
-              exact
-              path="/event-info"
-              component={EventInfo}
-            />
 
             <Route
               exact

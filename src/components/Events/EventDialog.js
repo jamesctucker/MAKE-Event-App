@@ -11,37 +11,46 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 class EventDialog extends Component {
     state = {
         open: false,
-        person_id: 5,
-        event_id: 7,
+        person_id: null,
+        event_id: null,
     };
 
     handleClickOpen = (event) => {
         this.setState({
             open: true,
-            event_id: event.target.value,
+            event_id: parseInt(event.target.value),
         });
     };
 
-    handleSetUser = (event) => {
+    handleSetUser = () => {
         this.setState({
-            user_id: event.target.value,
+            person_id: this.props.event_id,
         });
         this.handleClose();
     }
 
     handleClose = () => {
-        this.setState({
-            open: false,
-        });
         const action = ({ type: 'REGISTER_FOR_EVENT', payload: this.state });
         this.props.dispatch(action);
+        this.setState({
+            open: false,
+            person_id: null,
+            event_id: null,
+        });
     };
+
+    componentDidMount() {
+        this.props.dispatch({ type: 'FETCH_EVENTS' });
+        this.props.dispatch({ type: 'FETCH_USERS' });
+
+
+    }
 
     render() {
         return (
             <div>
+                {JSON.stringify(this.props.event_id)}
                 <Button
-                    value={this.state.event_id}
                     variant="contained"
                     color="primary"
                     onClick={this.handleClickOpen}
@@ -59,6 +68,8 @@ class EventDialog extends Component {
                             To subscribe to this website, please enter your email address here. We will send
                             updates occasionally.
             </DialogContentText>
+                        {JSON.stringify(this.props.reduxStore.user)}
+
                         <TextField
                             autoFocus
                             margin="dense"
@@ -76,7 +87,7 @@ class EventDialog extends Component {
                             Cancel
                          </Button>
                         <Button
-                            value={this.state.user_id}
+                            value={this.props.reduxStore.user.id}
                             onClick={this.handleSetUser}
                             color="primary">
                             Register
