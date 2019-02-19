@@ -1,90 +1,53 @@
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
-// import { withStyles } from '@material-ui/core/styles';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import Input from '@material-ui/core/Input';
-// import Table from '@material-ui/core/Table';
-// import TableBody from '@material-ui/core/TableBody';
-// import TableHead from '@material-ui/core/TableHead';
-// import TableRow from '@material-ui/core/TableRow';
-// import TableCell from '@material-ui/core/TableCell';
-// import Paper from '@material-ui/core/Paper';
-// import AttendeeTableRow from './AttendeeTableRow';
+import React, { Component } from "react";
+import { connect } from 'react-redux';
 
+import MaterialDatatable from "material-datatable";
 
-// const actionsStyles = theme => ({
-//     root: {
-//         flexShrink: 0,
-//         color: theme.palette.text.secondary,
-//         marginLeft: theme.spacing.unit * 2.5,
-//     },
-// });
+class AttendeeTestTable3 extends Component {
 
-// const styles = theme => ({
-//     root: {
-//         width: '100%',
-//         marginTop: theme.spacing.unit * 3,
-//     },
-//     table: {
-//         minWidth: 1200,
-//     },
-//     tableWrapper: {
-//         overflowX: 'auto',
-//     },
-// });
+    componentDidMount() {
+        this.props.dispatch({ type: 'FETCH_ATTENDEES' });
+    }
 
-
-// class AttendeeTable extends Component {
-
-//     componentDidMount() {
-//         const action = { type: 'FETCH_ATTENDEES' };
-//         console.log(action);
-//         this.props.dispatch(action);
-//     }
-
-
-//     render() {
-//         const { classes } = this.props;
-
-
-//         return (
-//             <Paper className={classes.root} >
-//                 <div className={classes.tableWrapper}>
-//                     <Table className={classes.table}>
-//                         <TableHead>
-//                             <TableRow>
-//                                 <TableCell align="right">Name</TableCell>
-//                                 <TableCell align="right">DOB</TableCell>
-//                                 <TableCell align="right">Email</TableCell>
-//                                 <TableCell align="right">Phone</TableCell>
-//                                 <TableCell align="right">Hometown</TableCell>
-//                                 <TableCell align="right">Country</TableCell>
-//                                 <TableCell align="right">Gender</TableCell>
-//                                 <TableCell align="right">Social Handle(s)</TableCell>
-//                                 <TableCell align="right">Employer</TableCell>
-//                                 <TableCell align="right">Job Title</TableCell>
-//                                 <TableCell align="right">Food Preferences</TableCell>
-//                                 <TableCell align="right">Preferred Transportation</TableCell>
-//                                 <TableCell align="right">Comments</TableCell>
-//                             </TableRow>
-//                         </TableHead>
-//                         <TableBody>
-//                             {this.props.reduxStore.attendees.map((result, i) => (
-//                                 <AttendeeTableRow key={i} result={result} />
-//                             ))}
-//                         </TableBody>
-//                     </Table>
-//                 </div>
-//             </Paper>
-
-//         );
-//     }
-// };
+    render() {
+        const columns = [
+            { name: "Name", field: "name" },
+            { name: "Birthdate", field: "dob" },
+            { name: "Email", field: "email" },
+            { name: "Phone", field: "phone" },
+            { name: "Hometown", field: "hometown" },
+            { name: "Country", field: "country_name" },
+            { name: "Gender", field: "gender" },
+            { name: "Social Handle(s)", field: "facebook_username" },
+            { name: "Employer", field: "employer" },
+            { name: "Job Title", field: "job_title" },
+            { name: "Food Preferences", field: "food_preferences" },
+            { name: "Preferred Transportation", field: "preferred_transportation" },
+            { name: "Comments", field: "comments" }
+        ];
 
 
 
+        const options = {
+            filterType: "dropdown",
+            responsive: "scroll",
+            jsonMode: true,
+        };
 
+        return (
 
-// const mapStoreToProps = (reduxStore) => ({ reduxStore })
-// export default connect(mapStoreToProps)(withStyles(styles)(AttendeeTable));
+            <MaterialDatatable
+
+                title={"Attendees"}
+                data={this.props.reduxStore.attendees}
+                columns={columns}
+                options={options}
+            />
+
+        );
+    }
+}
+
+const mapStoreToProps = (reduxStore) => ({ reduxStore });
+
+export default connect(mapStoreToProps)(AttendeeTestTable3);
