@@ -1,6 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+
+
 
 /**
  * GET route template
@@ -77,7 +80,7 @@ router.delete('/:id', (req, res) => {
         })
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', rejectUnauthenticated, (req, res) => {
     const registerEvent = req.body;
     const queryText = `INSERT INTO "registration" ("person_id", "event_id")                   
                     VALUES ($1, $2);`;

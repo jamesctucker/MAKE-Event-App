@@ -7,6 +7,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import swal from 'sweetalert';
+
 
 class EventDialog extends Component {
     state = {
@@ -23,15 +25,32 @@ class EventDialog extends Component {
         });
     };
 
-
-    handleClose = () => {
-        const action = ({ type: 'REGISTER_FOR_EVENT', payload: this.state });
-        this.props.dispatch(action);
+    handleCancel = () => {
         this.setState({
             open: false,
-            person_id: null,
-            event_id: null,
         });
+    };
+
+
+    handleClose = () => {
+        if (this.props.reduxStore.user.id) {
+            const action = ({ type: 'REGISTER_FOR_EVENT', payload: this.state });
+            this.props.dispatch(action);
+            this.setState({
+                open: false,
+                person_id: null,
+                event_id: null,
+            });
+        } else {
+            swal({
+                title: "Please Sign In",
+                text: "An account is required to register for an event",
+                icon: "warning",
+                buttons: false,
+                dangerMode: false,
+            })
+            // this.props.history.push('/api/account')
+        }
     };
 
     componentDidMount() {
@@ -76,7 +95,7 @@ class EventDialog extends Component {
                     </DialogContent>
                     <DialogActions>
                         <Button
-                            onClick={this.handleClose}
+                            onClick={this.handleCancel}
                             color="primary"
                         >
                             Cancel
