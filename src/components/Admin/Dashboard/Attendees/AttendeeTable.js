@@ -12,6 +12,7 @@ class AttendeeTestTable3 extends Component {
     render() {
         const columns = [
             { name: "Name", field: "name" },
+            { name: "Event", field: "event_name" },
             { name: "Birthdate", field: "dob" },
             { name: "Email", field: "email" },
             { name: "Phone", field: "phone" },

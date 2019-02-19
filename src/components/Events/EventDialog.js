@@ -15,19 +15,14 @@ class EventDialog extends Component {
         event_id: null,
     };
 
-    handleClickOpen = (event) => {
+    handleClickOpen = () => {
         this.setState({
             open: true,
-            event_id: parseInt(event.target.value),
+            person_id: this.props.reduxStore.user.id,
+            event_id: this.props.event_id,
         });
     };
 
-    handleSetUser = () => {
-        this.setState({
-            person_id: this.props.event_id,
-        });
-        this.handleClose();
-    }
 
     handleClose = () => {
         const action = ({ type: 'REGISTER_FOR_EVENT', payload: this.state });
@@ -68,7 +63,7 @@ class EventDialog extends Component {
                             To subscribe to this website, please enter your email address here. We will send
                             updates occasionally.
             </DialogContentText>
-                        {JSON.stringify(this.props.reduxStore.user)}
+                        {JSON.stringify(this.props.reduxStore.user.id)}
 
                         <TextField
                             autoFocus
@@ -87,8 +82,7 @@ class EventDialog extends Component {
                             Cancel
                          </Button>
                         <Button
-                            value={this.props.reduxStore.user.id}
-                            onClick={this.handleSetUser}
+                            onClick={this.handleClose}
                             color="primary">
                             Register
             </Button>

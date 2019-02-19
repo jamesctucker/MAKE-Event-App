@@ -6,14 +6,18 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    const queryText = `SELECT "person"."name", "person"."dob", "person"."email",
+    const queryText = `SELECT "registration"."id", "person"."name", "events"."event_name", "person"."dob", "person"."email",
     "person"."phone", "person"."hometown", "countries"."country_name", "genders"."gender", "person"."facebook_username", "person"."employer",
     "person"."job_title", "person"."food_preferences", "person"."preferred_transportation", "person"."comments"
-    FROM "countries" 
-        JOIN "person"
-            ON "countries"."id"="person"."country_id"
+    FROM "person" 
+        JOIN "registration"
+            ON "person"."id"="registration"."person_id"
         JOIN "genders"
-            ON "genders"."id"="person"."gender_id";`;
+            ON "genders"."id"="person"."gender_id"
+        JOIN "countries"
+            ON "countries"."id"="person"."country_id"
+        JOIN "events"
+            ON "events"."id"="registration"."event_id";`;
     pool.query(queryText)
         .then((result) => { res.send(result.rows); })
         .catch((error) => {
