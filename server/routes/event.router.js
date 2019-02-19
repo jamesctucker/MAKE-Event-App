@@ -6,8 +6,8 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    const queryText = `SELECT "countries"."country_name", "person"."name", "person"."dob", "person"."email",
-    "person"."phone", "person"."hometown", "genders"."gender", "person"."facebook_username", "person"."employer",
+    const queryText = `SELECT "person"."name", "person"."dob", "person"."email",
+    "person"."phone", "person"."hometown", "countries"."country_name", "genders"."gender", "person"."facebook_username", "person"."employer",
     "person"."job_title", "person"."food_preferences", "person"."preferred_transportation", "person"."comments"
     FROM "countries" 
         JOIN "person"

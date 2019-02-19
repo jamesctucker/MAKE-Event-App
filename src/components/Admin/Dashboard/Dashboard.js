@@ -45,31 +45,6 @@ class Dashboard extends Component {
         return (
             <div>
                 <h1>Dashboard</h1>
-                <form autoComplete="off">
-                    <FormControl>
-                        <InputLabel shrink htmlFor="event-dropdown">
-                            Select Event
-                        </InputLabel>
-                        <Select
-                            value={this.state.events}
-                            onChange={this.handleChangeSelect}
-                            input={<Input name="event" id="event-dropdown" />}
-                            displayEmpty
-                            name="event"
-                        >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            {this.props.reduxStore.events.map((result, i) => (
-                                <MenuItem value={result.id} key={i}>
-                                    {result.event_name}
-                                </MenuItem>
-
-
-                            ))}
-                        </Select>
-                    </FormControl>
-                </form>
                 <DashboardTableTabs />
                 <Button onClick={this.changePage} variant="contained">Create New Event</Button>
             </div>
