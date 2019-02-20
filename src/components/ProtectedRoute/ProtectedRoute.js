@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import { connect } from 'react-redux';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+// import Dashboard from './../Admin/Dashboard/Dashboard';
 // import Dashboard from '../Admin/Dashboard';
 
 // A Custom Wrapper Component -- This will keep our code DRY.
@@ -28,7 +29,7 @@ const ProtectedRoute = (props) => {
 
   let ComponentToShow;
 
-  if (user.id) {
+  if (user.id && user.auth_id >= 2) {
     // if the user is logged in (only logged in users have ids)
     // show the component that is protected
     ComponentToShow = ComponentToProtect;

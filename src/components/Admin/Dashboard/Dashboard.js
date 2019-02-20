@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import DashboardTableTabs from './../Dashboard/DashboardTableTabs';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
-import MenuItem from '@material-ui/core/MenuItem';
+
 
 import './Dashboard.css';
 
