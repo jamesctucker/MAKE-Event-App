@@ -24,13 +24,15 @@ const Nav = (props) => (
         and call this link 'Login / Register' if they are not */}
         {props.user.id ? 'Account' : 'Login / Register'}
       </Link>
-      {props.user.id && (
+      {props.user.auth_id >= 2 && (
         <>
           <Link className="nav-link" to="/dashboard">
             Dashboard
         </Link>
-          <LogOutButton className="nav-link" />
         </>
+      )}
+      {props.user.id && (
+        <LogOutButton className="nav-link" />
       )}
 
     </div>
