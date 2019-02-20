@@ -4,6 +4,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Button from '@material-ui/core/Button';
 import swal from 'sweetalert';
+import moment from 'moment';
+
 
 
 
@@ -41,8 +43,9 @@ class EventsTableRow extends Component {
         return (
             <TableRow>
                 <TableCell align="right">{this.props.result.event_name}</TableCell>
-                <TableCell align="right">{this.props.result.event_start_date}</TableCell>
+                <TableCell align="right">{moment(this.props.result.event_start_date).format("MMMM Do, YYYY")}</TableCell>
                 <TableCell align="right">{this.props.result.event_end_date}</TableCell>
+                <TableCell align="right">{this.props.result.event_time}</TableCell>
                 <TableCell align="right">{this.props.result.event_city}</TableCell>
                 <TableCell align="right">
                     <Button onClick={this.deleteEvent} variant='contained'>Delete</Button>

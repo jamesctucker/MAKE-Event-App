@@ -7,6 +7,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Typography from '@material-ui/core/Typography';
+
 import swal from 'sweetalert';
 
 
@@ -59,8 +61,6 @@ class EventDialog extends Component {
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_EVENTS' });
         this.props.dispatch({ type: 'FETCH_USERS' });
-
-
     }
 
     render() {
@@ -72,29 +72,25 @@ class EventDialog extends Component {
                     color="primary"
                     onClick={this.handleClickOpen}
                 >
-                    Register
+                    More Info
               </Button>
                 <Dialog
                     open={this.state.open}
                     onClose={this.handleClose}
                     aria-labelledby="form-dialog-title"
                 >
-                    <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+                    <DialogTitle id="form-dialog-title">Additional Info</DialogTitle>
                     <DialogContent>
-                        <DialogContentText>
-                            To subscribe to this website, please enter your email address here. We will send
-                            updates occasionally.
-            </DialogContentText>
-                        {/* {JSON.stringify(this.props.reduxStore.user.id)} */}
-
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Email Address"
-                            type="email"
-                            fullWidth
-                        />
+                        {/* {JSON.stringify(this.props.event_id)} */}
+                        <Typography variant="body1">
+                            Cost: free
+                        </Typography>
+                        <Typography variant="body1">
+                            Country: {this.props.event_country}
+                        </Typography>
+                        <Typography variant="body1">
+                            Venue: {this.props.event_host}
+                        </Typography>
                     </DialogContent>
                     <DialogActions>
                         <Button

@@ -72,7 +72,8 @@ class EventsList extends Component {
                 <Card id="list-card" className={classes.card}>
                     <CardHeader
                         title={this.props.result.event_name}
-                        subheader={moment(this.props.result.event_start_date).format("MMMM Do, YYYY")}
+                        subheader={this.props.result.event_country}
+
                     />
 
                     <CardContent>
@@ -98,7 +99,11 @@ class EventsList extends Component {
                                 {this.props.result.event_description}
                             </Typography>
                             <CardActions className={classes.actions} disableActionSpacing>
-                                <EventDialog event_id={this.props.result.id} />
+                                <EventDialog
+                                    event_id={this.props.result.id}
+                                    event_host={this.props.result.event_host}
+                                    event_country={this.props.result.event_country}
+                                />
                                 {/* <Button value={this.props.result.id} id="register-btn" size="small" variant="contained">Register</Button> */}
                             </CardActions>
                         </CardContent>

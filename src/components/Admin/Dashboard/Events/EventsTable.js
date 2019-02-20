@@ -60,6 +60,7 @@ class EventsTable extends Component {
                                 <TableCell align="right">Name</TableCell>
                                 <TableCell align="right">Start Date</TableCell>
                                 <TableCell align="right">End Date</TableCell>
+                                <TableCell align="right">Time</TableCell>
                                 <TableCell align="right">Location</TableCell>
                                 <TableCell align="right">Remove</TableCell>
                             </TableRow>

@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/get-events', (req, res) => {
-    const queryText = `SELECT "id", "event_name", "event_start_date", "event_end_date",
+    const queryText = `SELECT "id", "event_name", "event_start_date", "event_end_date", "event_time",
                         "event_city", "event_country", "event_host", "event_description"
                         FROM "events"`;
     pool.query(queryText)
@@ -49,8 +49,8 @@ router.get('/get-events', (req, res) => {
 router.post('/', (req, res) => {
     const createEvent = req.body;
     const queryText = `INSERT INTO "events" ("event_name", "event_start_date", 
-                     "event_end_date", "event_city", "event_country", "event_host", "event_description")                   
-                    VALUES ($1, $2, $3, $4, $5, $6, $7);`;
+                     "event_end_date", "event-time", "event_city", "event_country", "event_host", "event_description")                   
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`;
     const queryValues = [
         createEvent.event_name,
         createEvent.event_start_date,
