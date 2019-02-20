@@ -15,6 +15,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import red from '@material-ui/core/colors/red';
 import Grid from '@material-ui/core/Grid';
 import EventDialog from './EventDialog';
+import moment from 'moment';
+
 
 import './EventsList.css';
 
@@ -70,8 +72,9 @@ class EventsList extends Component {
                 <Card id="list-card" className={classes.card}>
                     <CardHeader
                         title={this.props.result.event_name}
-                        subheader={this.props.result.event_start_date}
+                        subheader={moment(this.props.result.event_start_date).format("MMMM Do, YYYY")}
                     />
+
                     <CardContent>
                         <Typography component="p"></Typography>
                     </CardContent>

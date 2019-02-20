@@ -66,7 +66,7 @@ class EventDialog extends Component {
     render() {
         return (
             <div>
-                {JSON.stringify(this.props.event_id)}
+                {/* {JSON.stringify(this.props.event_id)} */}
                 <Button
                     variant="contained"
                     color="primary"
@@ -85,7 +85,7 @@ class EventDialog extends Component {
                             To subscribe to this website, please enter your email address here. We will send
                             updates occasionally.
             </DialogContentText>
-                        {JSON.stringify(this.props.reduxStore.user.id)}
+                        {/* {JSON.stringify(this.props.reduxStore.user.id)} */}
 
                         <TextField
                             autoFocus
