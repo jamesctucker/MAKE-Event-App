@@ -6,17 +6,10 @@ import './Nav.css';
 
 const Nav = (props) => (
   <div className="nav">
-    <Link to="/home">
+    <Link to="/account">
       <h2 className="nav-title">MAKE Events</h2>
     </Link>
     <div className="nav-right">
-      {props.user.auth_id >= 2 && (
-        <>
-          <Link className="nav-link" to="/dashboard">
-            Dashboard
-        </Link>
-        </>
-      )}
       {/* Show the link to the info page and the logout button if the user is logged in */}
       <Link className="nav-link" to="/events">
         Events
@@ -33,10 +26,12 @@ const Nav = (props) => (
       </Link>
       {props.user.id && (
         <>
+          <Link className="nav-link" to="/dashboard">
+            Dashboard
+        </Link>
           <LogOutButton className="nav-link" />
         </>
       )}
-
 
     </div>
   </div>

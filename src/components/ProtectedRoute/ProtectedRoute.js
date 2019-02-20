@@ -29,7 +29,7 @@ const ProtectedRoute = (props) => {
 
   let ComponentToShow;
 
-  if (user.id && user.auth_id >= 2) {
+  if (user.id) {
     // if the user is logged in (only logged in users have ids)
     // show the component that is protected
     ComponentToShow = ComponentToProtect;
@@ -53,6 +53,7 @@ const ProtectedRoute = (props) => {
     />
   )
 }
+
 
 // Instead of taking everything from state, we just want the user and loginMode
 // to determine which page we should show the user

@@ -45,11 +45,14 @@ class EventDialog extends Component {
             swal({
                 title: "Please Sign In",
                 text: "An account is required to register for an event",
-                icon: "warning",
-                buttons: false,
-                dangerMode: false,
+                icon: "info",
+                buttons: {
+                    confirm: "Create Account"
+                }
             })
-            // this.props.history.push('/api/account')
+                .then(function () {
+                    window.location.href = ('/account');
+                })
         }
     };
 
