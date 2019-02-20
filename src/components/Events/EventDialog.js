@@ -43,6 +43,14 @@ class EventDialog extends Component {
                 person_id: null,
                 event_id: null,
             });
+            swal({
+                title: `Thank You, ${this.props.reduxStore.user.name}!`,
+                text: `You have successfully signed up for ${this.props.event_name}`,
+                icon: "success",
+                buttons: {
+                    confirm: "Close"
+                }
+            })
         } else {
             swal({
                 title: "Please Sign In",

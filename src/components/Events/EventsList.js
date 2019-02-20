@@ -19,6 +19,7 @@ import moment from 'moment';
 
 
 import './EventsList.css';
+import { throws } from 'assert';
 
 // import Link from '@material-ui/core/Link';
 // import Chip from '@material-ui/core/Chip';
@@ -100,9 +101,11 @@ class EventsList extends Component {
                             </Typography>
                             <CardActions className={classes.actions} disableActionSpacing>
                                 <EventDialog
+                                    person_name={this.props.reduxStore.attendees.name}
                                     event_id={this.props.result.id}
                                     event_host={this.props.result.event_host}
                                     event_country={this.props.result.event_country}
+                                    event_name={this.props.result.event_name}
                                 />
                                 {/* <Button value={this.props.result.id} id="register-btn" size="small" variant="contained">Register</Button> */}
                             </CardActions>
