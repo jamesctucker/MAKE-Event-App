@@ -106,6 +106,7 @@ class EventsList extends Component {
                                     event_host={this.props.result.event_host}
                                     event_country={this.props.result.event_country}
                                     event_name={this.props.result.event_name}
+                                   
                                 />
                                 {/* <Button value={this.props.result.id} id="register-btn" size="small" variant="contained">Register</Button> */}
                             </CardActions>

@@ -10,20 +10,28 @@ import AddToCalendar from "react-add-to-calendar";
 import 'react-add-to-calendar/dist/react-add-to-calendar.css';
 import swal from 'sweetalert';
 
-let event = {
-    title: 'Sample Event',
-    description: 'This is the sample event provided as an example only',
-    location: 'Portland, OR',
-    startTime: '2016-09-16T20:15:00-04:00',
-    endTime: '2016-09-16T21:45:00-04:00'
-};
+let icon = { textOnly: 'none' };
 
+let items = [
+    { outlook: 'Outlook' },
+    { outlookcom: 'Outlook.com' },
+    { apple: 'Apple Calendar' },
+    { yahoo: 'Yahoo' },
+    { google: 'Google' },
+];
 
 class EventDialog extends Component {
     state = {
         open: false,
         person_id: null,
         event_id: null,
+        event: {
+            title: 'Sample Event',
+            description: 'This is the sample event provided as an example only',
+            location: 'Portland, OR',
+            startTime: '2016-09-16T20:15:00-04:00',
+            endTime: '2016-09-16T21:45:00-04:00'
+        },
     };
 
     handleClickOpen = () => {
@@ -31,6 +39,13 @@ class EventDialog extends Component {
             open: true,
             person_id: this.props.reduxStore.user.id,
             event_id: this.props.event_id,
+            event: {
+                title: this.props.event_name,
+                description: this.props.event_description,
+                location: this.props.event_city,
+                startTime: this.props.event_start_date,
+                endTime: this.props.event_end_date
+            },
         });
     };
 
@@ -90,6 +105,8 @@ class EventDialog extends Component {
                     More Info
               </Button>
                 <Dialog
+                    disableBackdropClick
+                    disableEscapeKeyDown
                     open={this.state.open}
                     onClose={this.handleClose}
                     aria-labelledby="form-dialog-title"
@@ -120,7 +137,12 @@ class EventDialog extends Component {
                             Register
                         </Button>
                         <div>
-                            <AddToCalendar event={event} displayItemIcons={false} />
+                            <AddToCalendar
+                                event={this.state.event}
+                                buttonTemplate={icon}
+                                listItems={items}
+                                displayItemIcons={false}
+                            />
                         </div>
                     </DialogActions>
                 </Dialog>
