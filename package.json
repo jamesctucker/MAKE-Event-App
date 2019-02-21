@@ -23,6 +23,7 @@
     "pg": "^7.4.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
+    "react-add-to-calendar": "^0.1.5",
     "react-data-grid": "^6.0.1",
     "react-data-grid-addons": "^6.0.1",
     "react-dom": "^16.2.0",

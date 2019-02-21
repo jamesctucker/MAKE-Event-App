@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
-
+import AddToCalendar from "react-add-to-calendar";
+import 'react-add-to-calendar/dist/react-add-to-calendar.css';
 import swal from 'sweetalert';
+
+let event = {
+    title: 'Sample Event',
+    description: 'This is the sample event provided as an example only',
+    location: 'Portland, OR',
+    startTime: '2016-09-16T20:15:00-04:00',
+    endTime: '2016-09-16T21:45:00-04:00'
+};
 
 
 class EventDialog extends Component {
@@ -111,7 +118,10 @@ class EventDialog extends Component {
                             onClick={this.handleClose}
                             color="primary">
                             Register
-            </Button>
+                        </Button>
+                        <div>
+                            <AddToCalendar event={event} displayItemIcons={false} />
+                        </div>
                     </DialogActions>
                 </Dialog>
             </div>

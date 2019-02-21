@@ -29,8 +29,9 @@ class AttendeeTestTable3 extends Component {
 
 
 
+
         const options = {
-            filterType: "dropdown",
+            filterType: "multiselect",
             responsive: "scroll",
             jsonMode: true,
         };

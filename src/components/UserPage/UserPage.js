@@ -23,46 +23,46 @@ const UserPage = (props) => (
       <Typography variant="h6">
         Welcome, {props.user.username}!
     </Typography>
-      <InputLabel id="text-field" variant="outlined">
+      <InputLabel id="text-field">
         Name:
       </InputLabel>
       <Input id="text-field" label="Name" placeholder={props.user.name}></Input>
-      <InputLabel id="text-field" variant="outlined">
+      <InputLabel id="text-field">
         Birthdate:
       </InputLabel>
-      <Input id="text-field" variant="outlined" label="Birthdate" value={moment(props.user.dob).format("MMMM Do, YYYY")}></Input>
-      <InputLabel id="text-field" variant="outlined">
+      <Input id="text-field" label="Birthdate" placeholder={moment(props.user.dob).format("MMMM Do, YYYY")}></Input>
+      <InputLabel id="text-field">
         Email:
       </InputLabel>
-      <Input id="text-field" variant="outlined" label="Email" value={props.user.email}></Input>
-      <InputLabel id="text-field" variant="outlined">
+      <Input id="text-field" label="Email" placeholder={props.user.email}></Input>
+      <InputLabel id="text-field">
         Phone:
       </InputLabel>
-      <Input id="text-field" variant="outlined" label="Phone" value={props.user.phone}></Input>
-      <InputLabel id="text-field" variant="outlined">
+      <Input id="text-field" label="Phone" placeholder={props.user.phone}></Input>
+      <InputLabel id="text-field">
         Hometown:
       </InputLabel>
-      <Input id="text-field" variant="outlined" label="Hometown" value={props.user.hometown}></Input>
-      <InputLabel id="text-field" variant="outlined">
+      <Input id="text-field" label="Hometown" placeholder={props.user.hometown}></Input>
+      <InputLabel id="text-field">
         Country:
       </InputLabel>
-      <Input id="text-field" variant="outlined" label="Country" value={props.user.country_id}></Input>
-      <InputLabel id="text-field" variant="outlined">
+      <Input id="text-field" label="Country" placeholder={props.user.country_id}></Input>
+      <InputLabel id="text-field">
         Gender:
       </InputLabel>
-      <Input id="text-field" variant="outlined" label="Gender" value={props.user.gender_id}></Input>
-      <InputLabel id="text-field" variant="outlined">
+      <Input id="text-field" label="Gender" placeholder={props.user.gender_id}></Input>
+      <InputLabel id="text-field">
         Food Preferences:
       </InputLabel>
-      <Input id="text-field" variant="outlined" label="Food Preferences" value={props.user.food_preferences}></Input>
-      <InputLabel id="text-field" variant="outlined">
+      <Input id="text-field" label="Food Preferences" placeholder={props.user.food_preferences}></Input>
+      <InputLabel id="text-field">
         Preferred Transportation:
       </InputLabel>
-      <Input id="text-field" variant="outlined" label="Preferred Transportation" value={props.user.preferred_transportation}></Input>
+      <Input id="text-field" label="Preferred Transportation" placeholder={props.user.preferred_transportation}></Input>
       <div>
         <Button variant='contained'>Update Profile</Button>
-      </div>
-    </Paper>
+      </div >
+    </Paper >
     <div>
       <Typography variant="h5">
         Your Events
@@ -71,8 +71,8 @@ const UserPage = (props) => (
         <Typography variant="body1">
           Events will go here as cards or list?
             </Typography>
-      </Paper>
-    </div>
+      </Paper >
+    </div >
   </div >
 );
 
