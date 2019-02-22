@@ -41,6 +41,7 @@ class CreateEventForm extends Component {
         event_name: 'Event Name',
         event_start_date: 'Start Date (YYYY/MM/DD)',
         event_end_date: 'End Date (YYYY/MM/DD)',
+        event_time: 'Event Time (HH:MM - HH:MM)',
         event_city: 'Event City',
         event_country: 'Event Country',
         event_host: 'Event Host',
@@ -64,6 +65,7 @@ class CreateEventForm extends Component {
             event_name: 'Event Name',
             event_start_date: 'Start Date (YYYY/MM/DD)',
             event_end_date: 'End Date (YYYY/MM/DD)',
+            event_time: 'Event Time (HH:MM - HH:MM)',
             event_city: 'Event City',
             event_country: 'Event Country',
             event_host: 'Event Host',
@@ -105,6 +107,16 @@ class CreateEventForm extends Component {
                         className={classes.textField}
                         value={this.state.event_end_date}
                         onChange={this.handleChange('event_end_date')}
+                        variant='outlined'
+                        margin="normal"
+                    />
+                    <TextField
+                        required
+                        id="outlined-time"
+                        label="Required"
+                        className={classes.textField}
+                        value={this.state.event_time}
+                        onChange={this.handleChange('event_time')}
                         variant='outlined'
                         margin="normal"
                     />

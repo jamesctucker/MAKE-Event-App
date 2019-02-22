@@ -15,8 +15,7 @@ let icon = { textOnly: 'none' };
 let items = [
     { outlook: 'Outlook' },
     { outlookcom: 'Outlook.com' },
-    { apple: 'Apple Calendar' },
-    { yahoo: 'Yahoo' },
+    { apple: 'iCalendar' },
     { google: 'Google' },
 ];
 
@@ -54,6 +53,8 @@ class EventDialog extends Component {
             open: false,
         });
     };
+
+
 
 
     handleClose = () => {
@@ -122,6 +123,9 @@ class EventDialog extends Component {
                         </Typography>
                         <Typography variant="body1">
                             Venue: {this.props.event_host}
+                        </Typography>
+                        <Typography variant="body1">
+                            Time: {this.props.event_time}
                         </Typography>
                     </DialogContent>
                     <DialogActions>

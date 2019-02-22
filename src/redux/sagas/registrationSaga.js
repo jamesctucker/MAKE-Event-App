@@ -1,29 +1,29 @@
-import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "REGISTER" actions
-function* registerUser(action) {
-  try {
-    // clear any existing error on the registration page
-    yield put({ type: 'CLEAR_REGISTRATION_ERROR' });
+function* fetchRegisteredEvents() {
+    try {
+        const response = yield axios.get('/api/events/get-registered-events');
+        const nextAction = { type: 'SET_EVENT_REGISTRATION', payload: response.data };
+        yield put(nextAction);
+    } catch (error) {
+        console.log('Error with gettings events saga.');
+    }
+}
 
-    // passes the username and password from the payload to the server
-    yield axios.post('api/user/register', action.payload);
-
-    // automatically log a user in after registration
-    yield put({ type: 'LOGIN', payload: action.payload });
-    
-    // set to 'login' mode so they see the login screen
-    // after registration or after they log out
-    yield put({type: 'SET_TO_LOGIN_MODE'});
-  } catch (error) {
-      console.log('Error with user registration:', error);
-      yield put({type: 'REGISTRATION_FAILED'});
-  }
+function* unRegisterEvent(action) {
+    try {
+        yield axios.delete(`/api/unregister/${action.payload}`);
+        yield put({ type: "FETCH_REGISTERED_EVENTS" });
+    }
+    catch (error) {
+        yield console.log('error unRegister saga', error);
+    }
 }
 
 function* registrationSaga() {
-  yield takeLatest('REGISTER', registerUser);
+    yield takeLatest('FETCH_REGISTERED_EVENTS', fetchRegisteredEvents);
+    yield takeLatest('UNREGISTER_FROM_EVENT', unRegisterEvent);
 }
 
 export default registrationSaga;

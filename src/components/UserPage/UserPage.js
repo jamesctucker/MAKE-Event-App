@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import TableBody from '@material-ui/core/TableBody';
+import TableHead from '@material-ui/core/TableHead';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
 import moment from 'moment'
+import UserPageRows from './../UserPage/UserPageRows';
 import './UserPage.css';
 
 
@@ -61,8 +65,8 @@ const UserPage = (props) => (
       <Input id="text-field" label="Preferred Transportation" placeholder={props.user.preferred_transportation}></Input>
       <div>
         <Button variant='contained'>Update Profile</Button>
-      </div >
-    </Paper >
+      </div>
+    </Paper>
     <div>
       <Typography variant="h5">
         Your Events
@@ -71,17 +75,41 @@ const UserPage = (props) => (
         <Typography variant="body1">
           Events will go here as cards or list?
             </Typography>
-      </Paper >
-    </div >
-  </div >
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell align="right">Event</TableCell>
+              <TableCell align="right">Date</TableCell>
+              <TableCell align="right">City</TableCell>
+              <TableCell align="right">Country</TableCell>
+              <TableCell align="right">Unregister</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {/* {this.props.reduxStore.eventRegistration.map((result, i) => (
+              <UserPageRows key={i} result={result} />
+            ))} */}
+          </TableBody>
+        </Table>
+      </Paper>
+    </div>
+  </div>
 );
 
-// Instead of taking everything from state, we just want the user info.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({user}) => ({ user });
+// class UserPageCallBack extends Component {
+//   componentDidMount() {
+//     this.props.dispatch({ type: 'FETCH_REGISTERED_EVENTS' });
+//   }
+// }
+
+
+
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-// this allows us to use <App /> in index.js
+// const mapStoreToProps = reduxStore => ({
+//   reduxStore,
+// })
+
 export default connect(mapStateToProps)(UserPage);

@@ -5,9 +5,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 
-/**
- * GET route template
- */
 router.get('/', (req, res) => {
     const queryText = `SELECT "registration"."id", "person"."name", "events"."event_name", "person"."dob", "person"."email",
     "person"."phone", "person"."hometown", "countries"."country_name", "genders"."gender", "person"."facebook_username", "person"."employer",
@@ -29,6 +26,10 @@ router.get('/', (req, res) => {
         });
 });
 
+// router.get('/get-registered-events', (req, res) => {
+
+// })
+
 router.get('/get-events', (req, res) => {
     const queryText = `SELECT "id", "event_name", "event_start_date", "event_end_date", "event_time",
                         "event_city", "event_country", "event_host", "event_description"
@@ -49,12 +50,13 @@ router.get('/get-events', (req, res) => {
 router.post('/', (req, res) => {
     const createEvent = req.body;
     const queryText = `INSERT INTO "events" ("event_name", "event_start_date", 
-                     "event_end_date", "event-time", "event_city", "event_country", "event_host", "event_description")                   
+                     "event_end_date", "event_time", "event_city", "event_country", "event_host", "event_description")                   
                     VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`;
     const queryValues = [
         createEvent.event_name,
         createEvent.event_start_date,
         createEvent.event_end_date,
+        createEvent.event_time,
         createEvent.event_city,
         createEvent.event_country,
         createEvent.event_host,
@@ -95,6 +97,38 @@ router.post('/register', rejectUnauthenticated, (req, res) => {
             res.sendStatus(500);
         });
 });
+
+router.delete('/unregister/:id', (req, res) => {
+    const queryText = `DELETE FROM registration WHERE id=$1`;
+    pool.query(queryText, [req.params.id])
+        .then((response) => {
+            console.log(`server response: ${response}`);
+            res.sendStatus(201);
+        }).catch((error) => {
+            console.log(`Problem with deleting events: ${error}`);
+            res.sendStatus(500);
+        })
+});
+
+router.get('/get-registered-events', (req, res) => {
+    const queryText = `SELECT "registration"."id", "registration"."person_id", "events"."event_name", "events"."event_start_date", "events"."event_end_date",
+    "events"."event_city", "events"."event_country"
+    FROM "registration" 
+            JOIN "person"
+                ON "person"."id"="registration"."person_id"
+            JOIN "genders"
+                ON "genders"."id"="person"."gender_id"
+            JOIN "countries"
+                ON "countries"."id"="person"."country_id"
+            JOIN "events"
+                ON "events"."id"="registration"."event_id";`;
+    pool.query(queryText)
+        .then((result) => { res.send(result.rows); })
+        .catch((error) => {
+            console.log('Error completing SELECT registered event query', error);
+            res.sendStatus(500);
+        });
+})
 
 
 

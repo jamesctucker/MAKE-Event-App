@@ -10,16 +10,10 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import red from '@material-ui/core/colors/red';
 import Grid from '@material-ui/core/Grid';
 import EventDialog from './EventDialog';
 import moment from 'moment';
 
-
-import './EventsList.css';
-import { throws } from 'assert';
 
 // import Link from '@material-ui/core/Link';
 // import Chip from '@material-ui/core/Chip';
@@ -54,16 +48,10 @@ const styles = theme => ({
     },
 });
 
-class EventsList extends Component {
-    state = { expanded: false };
-
-    handleExpandClick = () => {
-        this.setState(state => ({ expanded: !state.expanded }));
-    };
-
+class NewsList extends Component {
 
     componentDidMount() {
-        const action = { type: 'FETCH_EVENTS' }
+        const action = { type: 'FETCH_NEWS' }
         this.props.dispatch(action);
     }
     render() {
@@ -92,28 +80,6 @@ class EventsList extends Component {
                             <ExpandMoreIcon />
                         </IconButton>
                     </CardActions>
-                    <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-                        <CardContent
-                            id="description-body"
-                        >
-                            <Typography component="p">
-                                {this.props.result.event_description}
-                            </Typography>
-                            <CardActions className={classes.actions} disableActionSpacing>
-                                <EventDialog
-                                    person_name={this.props.reduxStore.attendees.name}
-                                    event_id={this.props.result.id}
-                                    event_host={this.props.result.event_host}
-                                    event_country={this.props.result.event_country}
-                                    event_name={this.props.result.event_name}
-                                    event_time={this.props.result.event_time}
-
-                                />
-                                {/* <Button value={this.props.result.id} id="register-btn" size="small" variant="contained">Register</Button> */}
-                            </CardActions>
-                        </CardContent>
-                    </Collapse>
-
                 </Card>
             </Grid>
         );
@@ -128,4 +94,4 @@ const mapStoreToProps = reduxStore => ({
     reduxStore,
 });
 
-export default connect(mapStoreToProps)(withStyles(styles)(EventsList));
+export default connect(mapStoreToProps)(withStyles(styles)(NewsList));
