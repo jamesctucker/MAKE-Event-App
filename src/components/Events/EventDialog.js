@@ -7,8 +7,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
 import AddToCalendar from "react-add-to-calendar";
+import Divider from '@material-ui/core/Divider';
 import 'react-add-to-calendar/dist/react-add-to-calendar.css';
 import swal from 'sweetalert';
+import './EventsList.css';
 
 let icon = { textOnly: 'none' };
 
@@ -18,6 +20,8 @@ let items = [
     { apple: 'iCalendar' },
     { google: 'Google' },
 ];
+
+let label = ['ADD TO CALENDAR'];
 
 class EventDialog extends Component {
     state = {
@@ -99,6 +103,8 @@ class EventDialog extends Component {
             <div>
                 {/* {JSON.stringify(this.props.event_id)} */}
                 <Button
+                    id="more-info-btn"
+                    size="small"
                     variant="contained"
                     color="primary"
                     onClick={this.handleClickOpen}
@@ -127,6 +133,10 @@ class EventDialog extends Component {
                         <Typography variant="body1">
                             Time: {this.props.event_time}
                         </Typography>
+                        <Divider id="description-divider" />
+                        <Typography component="body1">
+                            {this.props.event_description}
+                        </Typography>
                     </DialogContent>
                     <DialogActions>
                         <Button
@@ -140,14 +150,16 @@ class EventDialog extends Component {
                             color="primary">
                             Register
                         </Button>
-                        <div>
-                            <AddToCalendar
-                                event={this.state.event}
-                                buttonTemplate={icon}
-                                listItems={items}
-                                displayItemIcons={false}
-                            />
-                        </div>
+
+
+                        <AddToCalendar
+                            className='test'
+                            event={this.state.event}
+                            buttonTemplate={icon}
+                            buttonLabel={label}
+                            listItems={items}
+                            displayItemIcons={false}
+                        />
                     </DialogActions>
                 </Dialog>
             </div>

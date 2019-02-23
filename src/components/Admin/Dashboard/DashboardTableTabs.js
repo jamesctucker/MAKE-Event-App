@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import AttendeeTable from './../Dashboard/Attendees/AttendeeTable';
 import EventsTable from './../Dashboard/Events/EventsTable';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -23,13 +22,6 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-const styles = theme => ({
-    root: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.background.paper,
-    },
-});
-
 class DashboardTableTabs extends Component {
     state = {
         value: 0,
@@ -40,17 +32,16 @@ class DashboardTableTabs extends Component {
     };
 
     render() {
-        const { classes } = this.props;
         const { value } = this.state;
 
         return (
-            <div className={classes.root}>
-                <AppBar position="static">
+            <div>
+                <AppBar id="tab" position="static">
                     <Tabs value={value} onChange={this.handleChange}>
-                        <Tab label="Attendees" />
-                        <Tab label="Volunteers" />
-                        <Tab label="Applications" />
-                        <Tab label="Events" />
+                        <Tab id="tab" label="Attendees" />
+                        <Tab id="tab" label="Volunteers" />
+                        <Tab id="tab" label="Applications" />
+                        <Tab id="tab" label="Events" />
 
                     </Tabs>
                 </AppBar>
@@ -71,4 +62,4 @@ DashboardTableTabs.propTypes = {
 const mapStoreToProps = reduxStore => ({ reduxStore })
 
 
-export default connect(mapStoreToProps)(withStyles(styles)(DashboardTableTabs));
+export default connect(mapStoreToProps)(DashboardTableTabs);

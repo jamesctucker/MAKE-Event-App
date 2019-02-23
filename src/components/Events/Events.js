@@ -19,12 +19,12 @@ class Events extends Component {
 
   render() {
     return (
-      <Paper id="events-paper" elevation={3}
+      <Paper id="events-paper" elevation={12}
       >
         <Grid
           container
           direction="row"
-          justify="space-evenly"
+          justify="center"
           alignItems="center"
         >
           {this.props.reduxStore.events.map((result, i) => (

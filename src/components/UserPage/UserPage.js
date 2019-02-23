@@ -14,10 +14,17 @@ import moment from 'moment'
 import UserPageRows from './../UserPage/UserPageRows';
 import './UserPage.css';
 
+// class UserPage extends Component {
+//   componentDidMount() {
+//     this.props.dispatch({ type: 'FETCH_REGISTERED_EVENTS' });
+//   }
+//   render() {
+//     return (
+//       <UserDetails />
+//     )
+//   }
+// }
 
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
   <div>
     <Typography variant="h5">
@@ -25,44 +32,44 @@ const UserPage = (props) => (
     </Typography>
     <Paper id="paper" elevation={3}>
       <Typography variant="h6">
-        Welcome, {props.user.username}!
+        Welcome, {props.reduxStore.user.username}!
     </Typography>
       <InputLabel id="text-field">
         Name:
       </InputLabel>
-      <Input id="text-field" label="Name" placeholder={props.user.name}></Input>
+      <Input id="text-field" label="Name" placeholder={props.reduxStore.user.name}></Input>
       <InputLabel id="text-field">
         Birthdate:
       </InputLabel>
-      <Input id="text-field" label="Birthdate" placeholder={moment(props.user.dob).format("MMMM Do, YYYY")}></Input>
+      <Input id="text-field" label="Birthdate" placeholder={moment(props.reduxStore.user.dob).format("MMMM Do, YYYY")}></Input>
       <InputLabel id="text-field">
         Email:
       </InputLabel>
-      <Input id="text-field" label="Email" placeholder={props.user.email}></Input>
+      <Input id="text-field" label="Email" placeholder={props.reduxStore.user.email}></Input>
       <InputLabel id="text-field">
         Phone:
       </InputLabel>
-      <Input id="text-field" label="Phone" placeholder={props.user.phone}></Input>
+      <Input id="text-field" label="Phone" placeholder={props.reduxStore.user.phone}></Input>
       <InputLabel id="text-field">
         Hometown:
       </InputLabel>
-      <Input id="text-field" label="Hometown" placeholder={props.user.hometown}></Input>
+      <Input id="text-field" label="Hometown" placeholder={props.reduxStore.user.hometown}></Input>
       <InputLabel id="text-field">
         Country:
       </InputLabel>
-      <Input id="text-field" label="Country" placeholder={props.user.country_id}></Input>
+      <Input id="text-field" label="Country" placeholder={props.reduxStore.user.country_id}></Input>
       <InputLabel id="text-field">
         Gender:
       </InputLabel>
-      <Input id="text-field" label="Gender" placeholder={props.user.gender_id}></Input>
+      <Input id="text-field" label="Gender" placeholder={props.reduxStore.user.gender_id}></Input>
       <InputLabel id="text-field">
         Food Preferences:
       </InputLabel>
-      <Input id="text-field" label="Food Preferences" placeholder={props.user.food_preferences}></Input>
+      <Input id="text-field" label="Food Preferences" placeholder={props.reduxStore.user.food_preferences}></Input>
       <InputLabel id="text-field">
         Preferred Transportation:
       </InputLabel>
-      <Input id="text-field" label="Preferred Transportation" placeholder={props.user.preferred_transportation}></Input>
+      <Input id="text-field" label="Preferred Transportation" placeholder={props.reduxStore.user.preferred_transportation}></Input>
       <div>
         <Button variant='contained'>Update Profile</Button>
       </div>
@@ -86,15 +93,27 @@ const UserPage = (props) => (
             </TableRow>
           </TableHead>
           <TableBody>
-            {/* {this.props.reduxStore.eventRegistration.map((result, i) => (
+            {/* {JSON.stringify(props.reduxStore.eventRegistration)} */}
+            {props.reduxStore.eventRegistration.map((result, i) => (
               <UserPageRows key={i} result={result} />
-            ))} */}
+            ))}
           </TableBody>
         </Table>
       </Paper>
     </div>
   </div>
 );
+
+// class FetchRegistered extends Component {
+//   componentDidMount = () => {
+//     this.props.dispatch({ type: 'FETCH_REGISTERED_EVENTS' });
+//   }
+//   render() {
+//     return (
+//       <UserPage />
+//     )
+//   }
+// }
 
 // class UserPageCallBack extends Component {
 //   componentDidMount() {
@@ -104,12 +123,12 @@ const UserPage = (props) => (
 
 
 
-const mapStateToProps = state => ({
-  user: state.user,
-});
+// const mapStateToProps = state => ({
+//   user: state.user,
+// });
 
-// const mapStoreToProps = reduxStore => ({
-//   reduxStore,
-// })
+const mapStateToProps = reduxStore => ({
+  reduxStore,
+})
 
 export default connect(mapStateToProps)(UserPage);

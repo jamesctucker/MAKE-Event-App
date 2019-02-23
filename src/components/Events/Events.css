@@ -1,6 +1,24 @@
 #events-paper {
-    margin: 80px;
+    margin-right: 150px;
+    margin-left: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     padding: 20px;
-    min-height: 300px;
-    background-color: lightgray;
+    background-color: #B4CF61;
+}
+
+#more-info-btn {
+    background-color: #407DC0;
+    width: 150px;
+    /* margin-left: 80px;
+    margin-right: relative; */
+    float: left;
+}
+
+#description-divider {
+    margin: 20px;
+}
+
+#card-header {
+    margin: 20px;
 }

@@ -42,12 +42,10 @@ class UserPageRows extends Component {
         return (
 
             <TableRow>
-                {JSON.stringify(this.props.reduxStore.eventRegistration)}
-
-                <TableCell align="right">{this.props.reduxStore.eventRegistration.event_name}</TableCell>
-                <TableCell align="right">{this.props.reduxStore.eventRegistration.event_start_date} - {this.props.reduxStore.eventRegistration.event_end_date}</TableCell>
-                <TableCell align="right">{this.props.reduxStore.eventRegistration.event_city}</TableCell>
-                <TableCell align="right">{this.props.reduxStore.eventRegistration.country_name}</TableCell>
+                <TableCell align="right">{this.props.result.event_name}</TableCell>
+                <TableCell align="right">{this.props.result.event_start_date} - {this.props.reduxStore.eventRegistration.event_end_date}</TableCell>
+                <TableCell align="right">{this.props.result.event_city}</TableCell>
+                <TableCell align="right">{this.props.result.country_name}</TableCell>
                 <TableCell align="right">
                     <Button onClick={this.unRegister} variant='contained'>Unregister</Button>
                 </TableCell>
