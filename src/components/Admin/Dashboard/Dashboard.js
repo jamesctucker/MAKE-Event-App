@@ -40,7 +40,7 @@ class Dashboard extends Component {
 
         return (
             <div>
-                <h1>Dashboard</h1>
+                <h1 id="dashboard">Dashboard</h1>
                 <DashboardTableTabs />
                 <Button onClick={this.changePage} variant="contained">Create New Event</Button>
             </div>

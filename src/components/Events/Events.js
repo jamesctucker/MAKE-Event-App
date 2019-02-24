@@ -19,7 +19,7 @@ class Events extends Component {
 
   render() {
     return (
-      <Paper id="events-paper" elevation={12}
+      <Paper id="events-paper" elevation={4}
       >
         <Grid
           container

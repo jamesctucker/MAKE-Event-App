@@ -32,6 +32,16 @@ function* deleteEvent(action) {
     }
 }
 
+function* updateEvent(action) {
+    try {
+        yield axios.put(`/api/events/update-event`, action.payload);
+        yield put({ type: "FETCH_EVENTS" });
+    }
+    catch (error) {
+        yield console.log('error updateEvents saga', error);
+    }
+}
+
 function* registerForEvent(action) {
     try {
         yield axios.post('/api/events/register', action.payload);
@@ -47,6 +57,7 @@ function* eventSaga() {
     yield takeLatest('FETCH_EVENTS', fetchEvents);
     yield takeLatest('CREATE_EVENT', createEvent);
     yield takeLatest('DELETE_EVENT', deleteEvent);
+    yield takeLatest('UPDATE_EVENT', updateEvent);
     yield takeLatest('REGISTER_FOR_EVENT', registerForEvent);
 
 }

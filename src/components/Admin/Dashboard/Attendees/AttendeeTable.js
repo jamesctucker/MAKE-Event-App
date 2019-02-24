@@ -1,13 +1,26 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import Paper from '@material-ui/core/Paper';
+import './../Dashboard.css';
 import moment from 'moment';
 import MaterialDatatable from "material-datatable";
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 class AttendeeTestTable3 extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_ATTENDEES' });
     }
+    getMuiTheme = () => createMuiTheme({
+        overrides: {
+            MUIDataTable: { responsiveScroll: { maxHeight: 'none', }, },
+            MuiTableCell: { root: { padding: '5px 20px 5px 10px' }, },
+            MuiTableRow: { footer: { height: 40 } },
+            MuiTablePagination: { toolbar: { height: 40, minHeight: 40 } },
+            MUIDataTableBodyCell: {}
+        },
+    });
+
 
     render() {
         const columns = [
@@ -37,14 +50,16 @@ class AttendeeTestTable3 extends Component {
         };
 
         return (
-
-            <MaterialDatatable
-
-                title={"Attendees"}
-                data={this.props.reduxStore.attendees}
-                columns={columns}
-                options={options}
-            />
+            <Paper elevation={3}>
+                <MuiThemeProvider theme={this.getMuiTheme()}>
+                    <MaterialDatatable
+                        title={"Attendees"}
+                        data={this.props.reduxStore.attendees}
+                        columns={columns}
+                        options={options}
+                    />
+                </MuiThemeProvider>
+            </Paper>
 
         );
     }

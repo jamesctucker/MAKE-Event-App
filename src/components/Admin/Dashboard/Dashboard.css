@@ -1,4 +1,14 @@
 #tab {
-    background-color: #407DC0;
+    background-color: lightgrey;
+    margin: 5px;
+    color: black;
+    margin: 10px;
 }
 
+#dashboard {
+    margin: 20px;
+}
+
+/* #tabs {
+    min-width: 400px;
+} */

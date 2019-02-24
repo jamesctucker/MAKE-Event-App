@@ -70,6 +70,45 @@ router.post('/', (req, res) => {
         });
 });
 
+router.put('/update-event', (req, res) => {
+    console.log(req.body);
+    const updateEvent = req.body;
+    const queryText = `
+    UPDATE "events"
+    SET 
+        "event_name" = $2,
+        "event_start_date" = $3,
+        "event_end_date" = $4,
+        "event_time" = $5,
+        "event_city" = $6,
+        "event_country" = $7,
+        "event_host" = $8,
+        "event_description" = $9,
+        "person_id" = $10
+    WHERE
+        "id" = $1;`;
+    const queryValues = [
+        updateEvent.id,
+        updateEvent.event_name,
+        updateEvent.event_start_date,
+        updateEvent.event_end_date,
+        updateEvent.event_time,
+        updateEvent.event_city,
+        updateEvent.event_country,
+        updateEvent.event_host,
+        updateEvent.event_description,
+        updateEvent.person_id
+    ];
+    pool.query(queryText, queryValues)
+        .then((response) => {
+            console.log(`server response: ${response}`);
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log(`Problem with updating events: ${error}`);
+            res.sendStatus(500);
+        })
+});
+
 router.delete('/:id', (req, res) => {
     const queryText = `DELETE FROM events WHERE id=$1`;
     pool.query(queryText, [req.params.id])

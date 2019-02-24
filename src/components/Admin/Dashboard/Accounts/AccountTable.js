@@ -10,13 +10,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
-import Input from '@material-ui/core/Input';
-
 import EventsTableRow from './EventsTableRow';
 // import IconButton from '@material-ui/core/IconButton';
 // import FirstPageIcon from '@material-ui/icons/FirstPage';
 // import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-// import KeyboardArrowcenter from '@material-ui/icons/KeyboardArrowcenter';
+// import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 // import LastPageIcon from '@material-ui/icons/LastPage';
 
 const actionsStyles = theme => ({
@@ -33,7 +31,7 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 3,
     },
     table: {
-        minWidth: 1500,
+        minWidth: 1200,
     },
     tableWrapper: {
         overflowX: 'auto',
@@ -44,7 +42,7 @@ const styles = theme => ({
 class EventsTable extends Component {
 
     componentDidMount() {
-        const action = { type: 'FETCH_EVENTS' };
+        const action = { type: 'FETCH_ATTENDEES' };
         console.log(action);
         this.props.dispatch(action);
     }
@@ -59,16 +57,14 @@ class EventsTable extends Component {
                     <Table className={classes.table}>
                         <TableHead>
                             <TableRow>
-                                <TableCell align="center">Name</TableCell>
-                                <TableCell align="center">Start Date</TableCell>
-                                <TableCell align="center">End Date</TableCell>
-                                <TableCell align="center">Time</TableCell>
-                                <TableCell align="center">City</TableCell>
-                                <TableCell align="center">Country</TableCell>
-                                <TableCell align="center">Host</TableCell>
-                                <TableCell align="center">Description</TableCell>
-                                <TableCell align="center">Edit</TableCell>
-                                <TableCell align="center">Remove</TableCell>
+                                <TableCell align="right">Username</TableCell>
+                                <TableCell align="right">Name</TableCell>
+                                <TableCell align="right">Birthdate</TableCell>
+                                <TableCell align="right">Email</TableCell>
+                                <TableCell align="right">Admin</TableCell>
+                                <TableCell align="right">Edit</TableCell>
+                                <TableCell align="right">Activate</TableCell>
+
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -89,4 +85,4 @@ class EventsTable extends Component {
 
 
 const mapStoreToProps = (reduxStore) => ({ reduxStore })
-export default connect(mapStoreToProps)(withStyles(styles)(EventsTable));
+export default connect(mapStoreToProps)(withStyles(styles)(AccountTable));
