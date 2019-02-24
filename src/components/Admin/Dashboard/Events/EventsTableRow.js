@@ -35,6 +35,13 @@ class EventsTableRow extends Component {
         const action = ({ type: 'UPDATE_EVENT', payload: this.state });
         this.props.dispatch(action);
         this.getEvents();
+        swal({
+            title: "Awesome!",
+            text: "You've successfully updated the event!",
+            icon: "success",
+            buttons: true,
+            dangerMode: false,
+        })
     }
 
     handleChange = propertyName => event => {

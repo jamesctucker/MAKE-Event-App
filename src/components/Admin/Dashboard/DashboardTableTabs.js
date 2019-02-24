@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AttendeeTable from './../Dashboard/Attendees/AttendeeTable';
 import EventsTable from './../Dashboard/Events/EventsTable';
+import AuthorizationTable from './../Dashboard/Authorization/authorizationtable';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -42,6 +43,8 @@ class DashboardTableTabs extends Component {
                         <Tab id="tab" label="Volunteers" />
                         <Tab id="tab" label="Applications" />
                         <Tab id="tab" label="Events" />
+                        <Tab id="tab" label="Edit Admins" />
+
 
                     </Tabs>
                 </AppBar>
@@ -49,6 +52,8 @@ class DashboardTableTabs extends Component {
                 {value === 1 && <TabContainer>Volunteers</TabContainer>}
                 {value === 2 && <TabContainer>Applications</TabContainer>}
                 {value === 3 && <TabContainer><EventsTable /></TabContainer>}
+                {value === 4 && <TabContainer><AuthorizationTable /></TabContainer>}
+
 
             </div>
         );

@@ -43,9 +43,30 @@ router.post('/register', (req, res, next) => {
     .catch((err) => { next(err); });
 });
 
-// router.put('/update-account', (req, res)) => {
-
-// }
+router.put('/update-admin', (req, res) => {
+  console.log(req.body);
+  const updateAuth = req.body;
+  const queryText = `
+  UPDATE "person"
+  SET 
+      "name" = $2,
+      "auth_id" = $3
+  WHERE
+      "id" = $1;`;
+  const queryValues = [
+    updateAuth.id,
+    updateAuth.name,
+    updateAuth.auth_id
+  ];
+  pool.query(queryText, queryValues)
+    .then((response) => {
+      console.log(`server response: ${response}`);
+      res.sendStatus(200);
+    }).catch((error) => {
+      console.log(`Problem with updating auth id: ${error}`);
+      res.sendStatus(500);
+    })
+});
 
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
