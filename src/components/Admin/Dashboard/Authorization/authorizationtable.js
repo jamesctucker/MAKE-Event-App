@@ -42,7 +42,7 @@ const styles = theme => ({
 class AuthorizationTable extends Component {
 
     componentDidMount() {
-        const action = { type: 'FETCH_USER' };
+        const action = { type: 'FETCH_ADMIN' };
         console.log(action);
         this.props.dispatch(action);
     }
@@ -62,7 +62,7 @@ class AuthorizationTable extends Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.props.reduxStore.registered.map((result, i) => (
+                            {this.props.reduxStore.admin.map((result, i) => (
                                 <AuthorizationRow key={i} result={result} />
                             ))}
                         </TableBody>

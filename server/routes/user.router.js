@@ -12,6 +12,16 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   res.send(req.user);
 });
 
+router.get('/admin', (req, res) => {
+  const queryText = `SELECT * FROM "person"`;
+  pool.query(queryText)
+    .then((result) => { res.send(result.rows); })
+    .catch((error) => {
+      console.log('Error completing SELECT admin query', error);
+      res.sendStatus(500);
+    });
+});
+
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted

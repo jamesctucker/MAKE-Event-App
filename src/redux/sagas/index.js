@@ -6,6 +6,7 @@ import dashboardSaga from './dashboardSaga';
 import eventSaga from './eventSaga';
 import miscDataSaga from './miscDataSaga';
 import registrationSaga from './registrationSaga';
+import adminSaga from './adminSaga';
 
 
 
@@ -25,5 +26,6 @@ export default function* rootSaga() {
     registerSaga(),
     userSaga(),
     registrationSaga(),
+    adminSaga(),
   ]);
 }

@@ -27,7 +27,7 @@ class AuthorizationRow extends Component {
     }
 
     componentDidMount = () => {
-        this.props.dispatch({ type: 'FETCH_USER' });
+        this.props.dispatch({ type: 'FETCH_ADMIN' });
     }
 
     updateAdmin = () => {

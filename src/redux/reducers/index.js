@@ -8,6 +8,7 @@ import registered from './registerReducer';
 import genders from './miscDataReducer';
 import countries from './miscDataReducer';
 import eventRegistration from './registrationReducer';
+import admin from './adminReducer';
 
 
 
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   genders,
   countries,
   eventRegistration,
+  admin,
 });
 
 export default rootReducer;
