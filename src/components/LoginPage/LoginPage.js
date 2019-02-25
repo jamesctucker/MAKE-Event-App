@@ -63,6 +63,7 @@ class LoginPage extends Component {
               <TextField
                 label="Password"
                 variant="filled"
+                type="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               >
