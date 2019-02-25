@@ -4,6 +4,7 @@ import EventsList from './../Events/EventsList';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import './Events.css';
+import { Typography } from '@material-ui/core';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -19,20 +20,24 @@ class Events extends Component {
 
   render() {
     return (
-      <Paper id="events-paper" elevation={4}
-      >
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          {this.props.reduxStore.events.map((result, i) => (
+      <div>
+        <center>
+          <Paper id="events-paper" elevation={4}
+          >
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
+              {this.props.reduxStore.events.map((result, i) => (
 
-            <EventsList history={this.props.history} key={i} result={result} />
-          ))}
-        </Grid>
-      </Paper>
+                <EventsList history={this.props.history} key={i} result={result} />
+              ))}
+            </Grid>
+          </Paper>
+        </center>
+      </div>
 
     )
   }

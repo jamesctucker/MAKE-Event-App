@@ -1,18 +1,21 @@
 #events-paper {
     margin-right: 50px;
     margin-left: 50px;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-bottom: 50px;
     padding: 20px;
     background-color: lightgray;
+    width: 75%
 }
 
 #more-info-btn {
     background-color: #3F51B5;
-    width: 150px;
-    /* margin-left: 80px;
-    margin-right: relative; */
-    float: left;
+    width: 100px;
+    margin-left: 110px;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
 }
 
 #description-divider {
@@ -38,4 +41,8 @@
 
 #form-title {
     margin: 20px;
+}
+
+#header {
+    margin-left: 50px;
 }

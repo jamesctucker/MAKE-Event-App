@@ -100,7 +100,7 @@ class EventDialog extends Component {
 
     render() {
         return (
-            <div>
+            <div id="dialog">
                 {/* {JSON.stringify(this.props.event_id)} */}
                 <Button
                     id="more-info-btn"
@@ -162,7 +162,7 @@ class EventDialog extends Component {
                         />
                     </DialogActions>
                 </Dialog>
-            </div>
+            </div >
         );
     }
 }

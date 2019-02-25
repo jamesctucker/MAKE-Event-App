@@ -19,3 +19,9 @@
 #update-btn {
     margin: 20px;
 }
+
+#user-paper {
+    margin: 40px;
+    padding: 30px;
+    background-color: lightgray;
+}

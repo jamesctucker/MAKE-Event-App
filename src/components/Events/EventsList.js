@@ -26,7 +26,7 @@ import './EventsList.css';
 const styles = theme => ({
     card: {
         width: 400,
-        height: 250,
+        height: 300,
         margin: 20,
     },
     media: {
@@ -73,26 +73,35 @@ class EventsList extends Component {
 
                     />
                     <Divider />
-                    <CardContent
-                        id="description-body"
-                    >
+                    <center>
 
-                        <CardActions className={classes.actions} disableActionSpacing>
-                            <EventDialog
-                                person_name={this.props.reduxStore.attendees.name}
-                                event_id={this.props.result.id}
-                                event_host={this.props.result.event_host}
-                                event_country={this.props.result.event_country}
-                                event_city={this.props.result.event_city}
-                                event_name={this.props.result.event_name}
-                                event_time={this.props.result.event_time}
-                                event_description={this.props.result.event_description}
+                        <CardContent
+                            id="description-body"
+
+                        >
+                            <Typography variant="p">
+                                {moment(this.props.result.event_start_date).format("MMMM Do, YYYY")} - {moment(this.props.result.event_end_date).format("MMMM Do, YYYY")}
+                            </Typography>
+
+                            <CardActions className={classes.actions} disableActionSpacing>
+                                <EventDialog
+                                    person_name={this.props.reduxStore.attendees.name}
+                                    event_id={this.props.result.id}
+                                    event_host={this.props.result.event_host}
+                                    event_country={this.props.result.event_country}
+                                    event_city={this.props.result.event_city}
+                                    event_name={this.props.result.event_name}
+                                    event_time={this.props.result.event_time}
+                                    event_description={this.props.result.event_description}
 
 
-                            />
-                            {/* <Button value={this.props.result.id} id="register-btn" size="small" variant="contained">Register</Button> */}
-                        </CardActions>
-                    </CardContent>
+                                />
+                                {/* <Button value={this.props.result.id} id="register-btn" size="small" variant="contained">Register</Button> */}
+                            </CardActions>
+
+                        </CardContent>
+                    </center>
+
 
 
                 </Card>
