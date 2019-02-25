@@ -69,7 +69,7 @@ class EventsList extends Component {
                 <Card id="list-card" className={classes.card}>
                     <CardHeader id="card-header"
                         title={this.props.result.event_name}
-                        subheader={this.props.result.event_country}
+                        subheader={this.props.result.event_city}
 
                     />
                     <Divider />
@@ -83,6 +83,7 @@ class EventsList extends Component {
                                 event_id={this.props.result.id}
                                 event_host={this.props.result.event_host}
                                 event_country={this.props.result.event_country}
+                                event_city={this.props.result.event_city}
                                 event_name={this.props.result.event_name}
                                 event_time={this.props.result.event_time}
                                 event_description={this.props.result.event_description}

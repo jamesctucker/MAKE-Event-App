@@ -1,6 +1,18 @@
-#gender-dropdown {
+/* #gender-dropdown {
     height: 20px;
     max-width: 50px;
     margin: 20px;
     padding: 20px;
+} */
+
+#register-paper {
+    padding: 50px;
+    width: 30%;
+    margin-left: 50px;
+    margin-right: auto;
+    margin-top: 35px;
+}
+
+#text-div {
+    margin: 20px auto;
 }

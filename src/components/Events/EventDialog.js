@@ -45,7 +45,7 @@ class EventDialog extends Component {
             event: {
                 title: this.props.event_name,
                 description: this.props.event_description,
-                location: this.props.event_city,
+                location: this.props.event_country,
                 startTime: this.props.event_start_date,
                 endTime: this.props.event_end_date
             },
@@ -125,7 +125,7 @@ class EventDialog extends Component {
                             Cost: free
                         </Typography>
                         <Typography variant="body1">
-                            Country: {this.props.event_country}
+                            Location: {this.props.event_city}, {this.props.event_country}
                         </Typography>
                         <Typography variant="body1">
                             Venue: {this.props.event_host}
@@ -134,7 +134,7 @@ class EventDialog extends Component {
                             Time: {this.props.event_time}
                         </Typography>
                         <Divider id="description-divider" />
-                        <Typography component="body1">
+                        <Typography variant="body1">
                             {this.props.event_description}
                         </Typography>
                     </DialogContent>

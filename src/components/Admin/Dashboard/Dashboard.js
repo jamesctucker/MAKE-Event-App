@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DashboardTableTabs from './../Dashboard/DashboardTableTabs';
 import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
+import Create from '@material-ui/icons/Create';
 
 
 import './Dashboard.css';
@@ -42,7 +42,9 @@ class Dashboard extends Component {
             <div>
                 <h1 id="dashboard">Dashboard</h1>
                 <DashboardTableTabs />
-                <Button onClick={this.changePage} variant="contained">Create New Event</Button>
+                <center>
+                    <Button color="primary" onClick={this.changePage} variant="contained"><Create />Create New Event</Button>
+                </center>
             </div>
 
         )

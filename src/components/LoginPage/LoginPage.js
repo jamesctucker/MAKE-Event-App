@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import './LoginPage.css';
 
 class LoginPage extends Component {
   state = {
@@ -40,47 +45,45 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.login}>
-          <h1>Login</h1>
-          <div>
-            <label htmlFor="username">
-              Username:
-              <input
-                type="text"
-                name="username"
+        <Paper id="login-paper" elevation={3}>
+          <center>
+            <Typography variant="h6">
+              Login
+          </Typography>
+            <div id="div">
+              <TextField
+                label="Username"
+                variant="filled"
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
+              >
+              </TextField>
+            </div>
+            <div id="div">
+              <TextField
+                label="Password"
+                variant="filled"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-          </div>
-          <div>
-            <input
-              className="log-in"
-              type="submit"
-              name="submit"
-              value="Log In"
-            />
-          </div>
-        </form>
+              >
+              </TextField>
+            </div>
+            <div id="div">
+              <Button variant="contained" color="primary" onClick={this.login}>
+                Login
+            </Button>
+            </div>
+          </center>
+        </Paper>
         <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
-          >
-            Register
-          </button>
+          <div id="div">
+            <Button
+              variant="contained"
+              onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
+            >
+              Register
+          </Button>
+          </div>
         </center>
       </div>
     );

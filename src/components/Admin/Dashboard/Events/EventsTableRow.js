@@ -143,10 +143,10 @@ class EventsTableRow extends Component {
                         rowsMax="10" />
                 </TableCell>
                 <TableCell align="center">
-                    <Fab onClick={this.updateEvents} size='small'><Done></Done></Fab>
+                    <Fab color="primary" onClick={this.updateEvents} size='small'><Done></Done></Fab>
                 </TableCell>
                 <TableCell align="center">
-                    <Fab onClick={this.deleteEvent} size='small'><DeleteIcon></DeleteIcon></Fab>
+                    <Fab color="secondary" onClick={this.deleteEvent} size='small'><DeleteIcon></DeleteIcon></Fab>
                 </TableCell>
             </TableRow>
         )

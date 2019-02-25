@@ -1,7 +1,5 @@
 #tab {
-    background-color: lightgrey;
-    margin: 5px;
-    color: black;
+    color: white;
     margin: 10px;
 }
 
@@ -9,6 +7,9 @@
     margin: 20px;
 }
 
-/* #tabs {
-    min-width: 400px;
+/* #appbar {
 } */
+
+#container {
+    margin: 20px;
+}

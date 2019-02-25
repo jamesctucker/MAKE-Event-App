@@ -23,7 +23,7 @@ import AddNews from '../News/AddNews';
 
 
 
-import './App.css';
+// import './App.css';
 
 class App extends Component {
   componentDidMount() {

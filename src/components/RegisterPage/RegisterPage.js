@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import './RegisterPage.css';
+import { Typography } from '@material-ui/core';
 
 const genders = [
   {
@@ -164,10 +163,6 @@ class RegisterPage extends Component {
     }
   }
 
-  // componentDidMount = () => {
-  //   this.props.dispatch({ type: 'FETCH_COUNTRIES' });
-  // }
-
 
   registerUser = (event) => {
     event.preventDefault();
@@ -208,219 +203,179 @@ class RegisterPage extends Component {
   render() {
     return (
       <div>
+
         {this.props.reduxStore.errors.registrationMessage && (
           <h2
-            className="alert"
+            id="alert"
             role="alert"
           >
             {this.props.reduxStore.errors.registrationMessage}
           </h2>
         )}
-        <form onSubmit={this.registerUser}>
-          <h1>Register For An Account</h1>
-          <div>
-            <InputLabel htmlFor="username">
-              Username
-            </InputLabel>
-            <Input
-              type="text"
-              name="username"
+
+        <Paper elevation={3} id="register-paper">
+          <Typography id="text-div" variant="h6">
+            Register For An Account
+        </Typography>
+          <div id="text-div">
+            <TextField
+              label="Username"
+              variant="filled"
               value={this.state.username}
               onChange={this.handleInputChangeFor('username')}
             />
           </div>
-          <div>
-            <InputLabel htmlFor="password">
-              Password:
-            </InputLabel>
-            <Input
-              type="password"
-              name="password"
+          <div id="text-div">
+            <TextField
+              label="Choose Password"
+              variant="filled"
               value={this.state.password}
               onChange={this.handleInputChangeFor('password')}
             />
-
           </div>
-          <div>
-            <InputLabel htmlFor="name">
-              Full Name:
-              </InputLabel>
-            <Input
-              type="text"
-              name="name"
+          <div id="text-div">
+            <TextField
+              label="Full Name"
+              variant="filled"
               value={this.state.name}
               onChange={this.handleInputChangeFor('name')}
             />
           </div>
-          <div>
-            <InputLabel htmlFor="dob">
-              Date of Birth:
-              </InputLabel>
-            <Input
-              type="date"
-              name="dob"
+          <div id="text-div">
+            <TextField
+              label="Date of Birth"
+              variant="filled"
               value={this.state.dob}
               onChange={this.handleInputChangeFor('dob')}
             />
           </div>
-          <div>
-            <InputLabel htmlFor="email">
-              Email:
-              </InputLabel>
-            <Input
-              type="text"
-              name="email"
+          <div id="text-div">
+            <TextField
+              label="Email Address"
+              variant="filled"
               value={this.state.email}
               onChange={this.handleInputChangeFor('email')}
             />
           </div>
-          <div>
-            <InputLabel htmlFor="phone">
-              Phone:
-              </InputLabel>
-            <Input
-              type="text"
-              name="phone"
+          <div id="text-div">
+            <TextField
+              label="Phone Number"
+              variant="filled"
               value={this.state.phone}
               onChange={this.handleInputChangeFor('phone')}
             />
           </div>
-          <div>
-            <InputLabel htmlFor="hometown">
-              Hometown:
-              </InputLabel>
-            <Input
-              type="text"
-              name="hometown"
+          <div id="text-div">
+            <TextField
+              label="Hometown"
+              variant="filled"
               value={this.state.hometown}
               onChange={this.handleInputChangeFor('hometown')}
             />
           </div>
-          <div>
-            <FormControl>
-              <InputLabel shrink htmlFor="country-dropdown">
-                Select Country
-                        </InputLabel>
-              <Select
-                value={this.state.country_id}
-                onChange={this.handleInputChangeFor('country_id')}
-                input={<Input name="country" id="country-dropdown" />}
-                displayEmpty
-                name="country"
-              >
-                {countries.map(result => (
-                  <MenuItem key={result.value} value={result.value}>
-                    {result.label}
-                  </MenuItem>
+          <div id="text-div">
+            <TextField
+              select
+              label="Country"
+              variant="filled"
+              value={this.state.country_id}
+              onChange={this.handleInputChangeFor('country_id')}
+              helperText="Please select your country"
+            >
+              {countries.map(result => (
+                <MenuItem key={result.value} value={result.value}>
+                  {result.label}
+                </MenuItem>
 
 
-                ))}
-              </Select>
-            </FormControl>
+              ))}
+            </TextField>
           </div>
-          <div>
-            <InputLabel htmlFor="gender">
-              Gender:
-              </InputLabel>
-            <Select
+          <div id="text-div">
+            <TextField
+              select
+              label="Gender"
+              variant="filled"
               value={this.state.gender_id}
               onChange={this.handleInputChangeFor('gender_id')}
-              displayEmpty
-              name="gender"
+              helperText="Please select your gender"
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
               {genders.map(option => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
               ))}
-            </Select>
+            </TextField>
           </div>
-          <div>
-            <InputLabel htmlFor="facebook_username">
-              Social Media Handles:
-              </InputLabel>
-            <Input
-              type="text"
-              name="facebook_username"
+          <div id="text-div">
+            <TextField
+              label="Social Media Url(s)"
+              variant="filled"
               value={this.state.facebook_username}
               onChange={this.handleInputChangeFor('facebook_username')}
             />
           </div>
-          <div>
-            <InputLabel htmlFor="employer">
-              Employer:
-              </InputLabel>
-            <Input
-              type="text"
-              name="employer"
+          <div id="text-div">
+            <TextField
+              label="Employer"
+              variant="filled"
               value={this.state.employer}
               onChange={this.handleInputChangeFor('employer')}
             />
           </div>
-          <div>
-            <InputLabel htmlFor="job_title">
-              Job Title:
-              </InputLabel>
-            <Input
-              type="text"
-              name="job_title"
+          <div id="text-div">
+            <TextField
+              label="Job Title"
+              variant="filled"
               value={this.state.job_title}
               onChange={this.handleInputChangeFor('job_title')}
             />
           </div>
-          <div>
-            <InputLabel htmlFor="food_preferences">
-              Food Preferences:
-              </InputLabel>
-            <Input
-              type="text"
-              name="food_preferences"
+          <div id="text-div">
+            <TextField
+              label="Food Preferences"
+              variant="filled"
               value={this.state.food_preferences}
               onChange={this.handleInputChangeFor('food_preferences')}
             />
           </div>
-          <div>
-            <InputLabel htmlFor="preferred_transportation">
-              Preferred Transportation:
-              </InputLabel>
-            <Input
-              type="text"
-              name="preferred_transportation"
+          <div id="text-div">
+            <TextField
+              label="Preferred Transportation"
+              variant="filled"
               value={this.state.preferred_transportation}
               onChange={this.handleInputChangeFor('preferred_transportation')}
             />
           </div>
-          <div>
-            <InputLabel htmlFor="comments">
-              Comments:
-              </InputLabel>
-            <Input
-              type="text"
-              name="comments"
+          <div id="text-div">
+            <TextField
+              multiline
+              label="Comments"
+              variant="filled"
               value={this.state.comments}
               onChange={this.handleInputChangeFor('comments')}
             />
           </div>
-          <div>
-            <Input
-              className="register"
-              type="submit"
-              name="submit"
-              value="Register"
-            />
+          <div id="text-div">
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={this.registerUser}
+            >
+              Create Account
+                </Button>
           </div>
-        </form>
+        </Paper>
         <center>
-          <Button
-            variant="contained"
-            className="link-button"
-            onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
-          >
-            Login
+          <div>
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+            >
+              Login
           </Button>
+          </div>
         </center>
       </div>
     )
@@ -429,7 +384,7 @@ class RegisterPage extends Component {
 
 // // Instead of taking everything from state, we just want the error messages.
 // // if you wanted you could write this code like this:
-// const mapStateToProps = ({ errors }) => ({ errors });
+// const mapStateToProps = ({errors}) => ({errors});
 
 // const mapStateToProps = state => ({
 //   errors: state.errors,

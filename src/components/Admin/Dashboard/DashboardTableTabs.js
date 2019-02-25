@@ -36,13 +36,13 @@ class DashboardTableTabs extends Component {
         const { value } = this.state;
 
         return (
-            <div>
-                <AppBar id="tab" position="static">
+            <div id="container">
+                <AppBar id="appbar" position="static">
                     <Tabs value={value} onChange={this.handleChange}>
                         <Tab id="tab" label="Attendees" />
                         <Tab id="tab" label="Volunteers" />
                         <Tab id="tab" label="Applications" />
-                        <Tab id="tab" label="Events" />
+                        <Tab id="tab" label="Edit Events" />
                         <Tab id="tab" label="Edit Admins" />
 
 

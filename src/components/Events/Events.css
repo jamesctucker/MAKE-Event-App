@@ -1,6 +1,6 @@
 #events-paper {
-    margin-right: 150px;
-    margin-left: 150px;
+    margin-right: 50px;
+    margin-left: 50px;
     margin-top: 50px;
     margin-bottom: 50px;
     padding: 20px;
@@ -8,7 +8,7 @@
 }
 
 #more-info-btn {
-    background-color: #407DC0;
+    background-color: #3F51B5;
     width: 150px;
     /* margin-left: 80px;
     margin-right: relative; */
@@ -20,5 +20,22 @@
 }
 
 #card-header {
+    margin: 20px;
+}
+
+#text-paper {
+    padding: 50px;
+    margin: 20px;
+}
+
+#return-btn {
+    margin: 20px;
+}
+
+#submit-btn {
+    margin: 20px;
+}
+
+#form-title {
     margin: 20px;
 }

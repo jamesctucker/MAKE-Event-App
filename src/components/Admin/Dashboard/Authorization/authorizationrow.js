@@ -7,6 +7,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fab from '@material-ui/core/Fab';
 import Done from '@material-ui/icons/Done';
+import Tooltip from '@material-ui/core/Tooltip';
 import swal from 'sweetalert';
 
 const admin = [
@@ -33,6 +34,13 @@ class AuthorizationRow extends Component {
     updateAdmin = () => {
         const action = ({ type: 'UPDATE_ADMIN', payload: this.state });
         this.props.dispatch(action);
+        swal({
+            title: "Awesome!",
+            text: "You've successfully given the user admin privileges.",
+            icon: "success",
+            buttons: true,
+            dangerMode: false,
+        })
     }
 
     handleChange = propertyName => event => {
@@ -65,7 +73,9 @@ class AuthorizationRow extends Component {
                     </Select>
                 </TableCell>
                 <TableCell align="center">
-                    <Fab onClick={this.updateAdmin} size='small'><Done></Done></Fab>
+                    <Tooltip title="Update">
+                        <Fab color="primary" onClick={this.updateAdmin} size='small'><Done></Done></Fab>
+                    </Tooltip>
                 </TableCell>
             </TableRow>
         )
