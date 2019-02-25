@@ -18,22 +18,21 @@ class UserPageRows extends Component {
 
     unRegister = () => {
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover your data!",
+            title: "Are you sure you want to unregister?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Poof! Your event has been deleted forever!", {
+                    swal("You have successfully unregistered", {
                         icon: "success",
                     });
                     const action = ({ type: 'UNREGISTER_FROM_EVENT', payload: this.props.reduxStore.eventRegistration.id });
                     this.props.dispatch(action);
 
                 } else {
-                    swal("Your data is safe!");
+                    swal("You're still on!");
                 }
             });
         this.getRegisteredEvents();
@@ -42,12 +41,11 @@ class UserPageRows extends Component {
         return (
 
             <TableRow>
-                <TableCell align="right">{this.props.result.event_name}</TableCell>
-                <TableCell align="right">{this.props.result.event_start_date} - {this.props.reduxStore.eventRegistration.event_end_date}</TableCell>
-                <TableCell align="right">{this.props.result.event_city}</TableCell>
-                <TableCell align="right">{this.props.result.country_name}</TableCell>
-                <TableCell align="right">
-                    <Button onClick={this.unRegister} variant='contained'>Unregister</Button>
+                <TableCell align="center">{this.props.result.event_name}</TableCell>
+                <TableCell align="center">{this.props.result.event_start_date}</TableCell>
+                <TableCell align="center">{this.props.result.event_city}</TableCell>
+                <TableCell align="center">
+                    <Button color="secondary" onClick={this.unRegister} variant='contained'>Unregister</Button>
                 </TableCell>
             </TableRow>
         )

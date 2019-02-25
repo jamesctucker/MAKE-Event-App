@@ -6,7 +6,16 @@
 #paper {
     padding: 20px;
     margin-top: 20px;
-    margin-left: 100px;
-    margin-right: 100px;;
+    margin-left: 75px;
+    margin-right: 75px;;
     margin-bottom: 20px;
+}
+
+#header {
+    margin-left: 75px;
+    padding: 20px;
+}
+
+#update-btn {
+    margin: 20px;
 }

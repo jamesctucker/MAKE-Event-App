@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import InputLabel from '@material-ui/core/InputLabel';
 import moment from 'moment'
-import UserPageRows from './../UserPage/UserPageRows';
+import UserTableBody from './../UserPage/UserTableBody';
 import './UserPage.css';
 
 // class UserPage extends Component {
@@ -27,7 +27,7 @@ import './UserPage.css';
 
 const UserPage = (props) => (
   <div>
-    <Typography variant="h5">
+    <Typography id="header" variant="h5">
       Your Account Information
     </Typography>
     <Paper id="paper" elevation={3}>
@@ -70,34 +70,28 @@ const UserPage = (props) => (
         Preferred Transportation:
       </InputLabel>
       <Input id="text-field" label="Preferred Transportation" placeholder={props.reduxStore.user.preferred_transportation}></Input>
-      <div>
-        <Button variant='contained'>Update Profile</Button>
-      </div>
+      <center>
+        <div>
+          <Button id="update-btn" color="primary" variant='contained'>Update Profile</Button>
+        </div>
+      </center>
     </Paper>
     <div>
-      <Typography variant="h5">
+      <Typography id="header" variant="h5">
         Your Events
           </Typography>
       <Paper id="paper" elevation={3}>
-        <Typography variant="body1">
-          Events will go here as cards or list?
-            </Typography>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell align="right">Event</TableCell>
-              <TableCell align="right">Date</TableCell>
-              <TableCell align="right">City</TableCell>
-              <TableCell align="right">Country</TableCell>
-              <TableCell align="right">Unregister</TableCell>
+              <TableCell align="center">Event</TableCell>
+              <TableCell align="center">Date</TableCell>
+              <TableCell align="center">City</TableCell>
+              <TableCell align="center">Unregister</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {/* {JSON.stringify(props.reduxStore.eventRegistration)} */}
-            {props.reduxStore.eventRegistration.map((result, i) => (
-              <UserPageRows key={i} result={result} />
-            ))}
-          </TableBody>
+          {/* {JSON.stringify(props.reduxStore.eventRegistration)} */}
+          <UserTableBody />
         </Table>
       </Paper>
     </div>
