@@ -12,8 +12,20 @@ Before you get started, make sure you have the following software installed on y
 ## Create database and table
 Create a database using the database.sql file.
 
-## Features
+## Run
 
 - `npm install`
 - `npm run server`
 - `npm run client`
+
+## Features
+
+- Dashboard to view event and registration data (Admin)
+- Create new event (Admin)
+- Edit events (Admin)
+- Grant admin privileges (Admin)
+- View events (user)
+- Register for an event (user)
+- Add event automatically to Google or iCal or Outlook (user)
+- Edit demographic/account info (user and admin)
+- Apply for grants/special openings (user)
