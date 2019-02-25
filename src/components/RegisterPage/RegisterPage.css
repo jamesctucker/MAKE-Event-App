@@ -8,11 +8,15 @@
 #register-paper {
     padding: 50px;
     width: 30%;
-    margin-left: 50px;
+    margin-left: 400px;
     margin-right: auto;
     margin-top: 35px;
 }
 
 #text-div {
     margin: 20px auto;
+}
+
+#login-btn {
+    margin: 20px;
 }
