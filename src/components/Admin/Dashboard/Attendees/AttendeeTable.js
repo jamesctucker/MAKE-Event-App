@@ -6,6 +6,8 @@ import moment from 'moment';
 import MaterialDatatable from "material-datatable";
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
+
+// this component displays event attendees
 class AttendeeTestTable3 extends Component {
 
     componentDidMount() {

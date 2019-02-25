@@ -1,3 +1,4 @@
+// this reducer stores event attendee info
 const attendees = (state = [], action) => {
     switch (action.type) {
         case 'SET_ATTENDEES':

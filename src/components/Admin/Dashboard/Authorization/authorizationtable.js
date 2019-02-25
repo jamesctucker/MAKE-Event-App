@@ -38,7 +38,7 @@ const styles = theme => ({
     },
 });
 
-
+// this component allows the admin to grant other users admin privileges
 class AuthorizationTable extends Component {
 
     componentDidMount() {

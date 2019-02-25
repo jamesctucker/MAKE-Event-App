@@ -10,7 +10,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import './Dashboard.css';
 
-
+// this container contains multiple tables
 function TabContainer(props) {
     return (
         <Typography component="div" style={{ padding: 8 * 3 }}>
