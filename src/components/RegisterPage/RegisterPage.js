@@ -18,7 +18,7 @@ const genders = [
   },
   {
     value: 3,
-    label: 'Other',
+    label: 'Non-binary',
   },
 ];
 

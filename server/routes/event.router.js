@@ -6,7 +6,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 router.get('/', (req, res) => {
-    const queryText = `SELECT "registration"."id", "person"."name", "events"."event_name", "person"."dob", "person"."email",
+    const queryText = `SELECT "registration"."id", "person"."name", "events"."event_name", TO_CHAR("dob", 'Month dd, yyyy'), "person"."email",
     "person"."phone", "person"."hometown", "countries"."country_name", "genders"."gender", "person"."facebook_username", "person"."employer",
     "person"."job_title", "person"."food_preferences", "person"."preferred_transportation", "person"."comments"
     FROM "person" 
