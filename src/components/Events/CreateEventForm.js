@@ -10,6 +10,7 @@ import swal from 'sweetalert';
 import Tooltip from '@material-ui/core/Tooltip';
 
 import './Events.css';
+import FileUpload from './../FileUpload/FileUpload';
 
 
 
@@ -166,6 +167,8 @@ class CreateEventForm extends Component {
                             variant="outlined"
                         />
                     </form>
+                    <FileUpload />
+
                     <Button color="primary" className={classes.button} id='submit-btn'
                         onClick={this.handleCreateEvent} variant='contained'>Submit</Button>
                 </center>
