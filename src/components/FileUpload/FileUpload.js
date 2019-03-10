@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import swal from 'sweetalert';
+
+
 
 class FileUpload extends Component {
     constructor() {
@@ -8,7 +13,7 @@ class FileUpload extends Component {
             file: null
         };
     }
-
+   
     submitFile = (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -30,10 +35,22 @@ class FileUpload extends Component {
 
     render() {
         return (
-            <form onSubmit={this.submitFile}>
-                <input label='upload file' type='file' onChange={this.handleFileUpload} />
-                <button type='submit'>Send</button>
-            </form>
+            <div>
+                {/* {JSON.stringify(this.state.file)} */}
+                <input
+                    id="raised-button-file"
+                    multiple
+                    type="file"
+                    onChange={this.handleFileUpload}
+                />
+                <Button onClick={this.submitFile} variant="contained" component="span">
+                    <CloudUploadIcon />
+                </Button>
+
+            </div>
+
+
+
         );
     }
 }

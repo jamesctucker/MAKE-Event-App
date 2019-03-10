@@ -10,7 +10,12 @@ import swal from 'sweetalert';
 import Tooltip from '@material-ui/core/Tooltip';
 
 import './Events.css';
-import FileUpload from './../FileUpload/FileUpload';
+// import FileUpload from './../FileUpload/FileUpload';
+import TestFileUpload from './../FileUpload/TestFileUpload';
+// import { FilePond, registerPlugin } from 'react-filepond';
+
+// Import FilePond styles
+// import 'filepond/dist/filepond.min.css';
 
 
 
@@ -167,7 +172,7 @@ class CreateEventForm extends Component {
                             variant="outlined"
                         />
                     </form>
-                    <FileUpload />
+                    <TestFileUpload />
 
                     <Button color="primary" className={classes.button} id='submit-btn'
                         onClick={this.handleCreateEvent} variant='contained'>Submit</Button>
