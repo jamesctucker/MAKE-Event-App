@@ -33,10 +33,15 @@ npm run client
 
 ### Filter and Sort Data
 
+![](filter.gif)
+
 ### Download Data As Excel File
+
+![](excel.gif)
 
 ### Add Event to Calendar
 
+![](calendar.gif)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
