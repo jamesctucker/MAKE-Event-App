@@ -1,5 +1,10 @@
-# MAKE Events
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+# MAKE Event App
+
+MAKE Event App is a CMS for storing and displaying event data in a central location.
+
+## Demo
+
+[Heroku](https://intense-savannah-19175.herokuapp.com/#/account)
 
 ## Prerequisites
 
@@ -9,23 +14,48 @@ Before you get started, make sure you have the following software installed on y
 - [PostrgeSQL](https://www.postgresql.org/)
 - [Nodemon](https://nodemon.io/)
 
-## Create database and table
-Create a database using the database.sql file.
+## Setup
 
-## Run
+1. Fork and clone this repository.
 
-- `npm install`
-- `npm run server`
-- `npm run client`
+```bash
+npm install 
+npm run server
+npm run client
+```
+2. Set up a PostgreSQL database using the project's database.sql file.
 
 ## Features
 
-- Dashboard to view event and registration data (Admin)
-- Create new event (Admin)
-- Edit events (Admin)
-- Grant admin privileges (Admin)
-- View events (user)
-- Register for an event (user)
-- Add event automatically to Google or iCal or Outlook (user)
-- Edit demographic/account info (user and admin)
-- Apply for grants/special openings (user)
+### Dashboard
+
+### Filter and Sort Data
+
+### Download Data As Excel File
+
+### Add Event to Calendar
+
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
