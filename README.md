@@ -29,6 +29,8 @@ npm run client
 
 ### Dashboard
 
+![](2019-03-25 19.36.18.gif)
+
 ### Filter and Sort Data
 
 ### Download Data As Excel File
