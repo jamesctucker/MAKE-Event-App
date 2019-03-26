@@ -29,7 +29,7 @@ npm run client
 
 ### Dashboard
 
-![Dashboard](dashboard.gif)
+![](dashboard.gif)
 
 ### Filter and Sort Data
 
