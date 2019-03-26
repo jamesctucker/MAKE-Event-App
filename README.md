@@ -29,7 +29,7 @@ npm run client
 
 ### Dashboard
 
-![Dashboard](MAKE-Event-App/2019-03-25 19.36.18.gif)
+![Dashboard](dashboard.gif)
 
 ### Filter and Sort Data
 
