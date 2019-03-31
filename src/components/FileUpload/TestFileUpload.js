@@ -9,9 +9,8 @@ import 'filepond/dist/filepond.min.css';
 // Register the plugins
 const AWS = require('aws-sdk');
 const s3 = new AWS.S3({
-    accessKeyId: process.env.CLOUDCUBE_ACCESS_KEY_ID,
-    secretAccessKey: process.env.CLOUDCUBE_SECRET_ACCESS_KEY,
-    url: process.env.CLOUDCUBE_URL,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
 // Our app
@@ -42,8 +41,8 @@ class TestFileUpload extends Component {
                             process: function (fieldName, file, metadata, load, error) {
 
                                 s3.upload({
-                                    Bucket: 'cloud-cube',
-                                    Key: `cloud-cube/newEventPhotos/${file.name}`,
+                                    Bucket: 'make-events',
+                                    Key: `newEventPhotos/${file.name}`,
                                     Body: file,
                                     ContentType: file.type,
                                     ACL: 'public-read'
