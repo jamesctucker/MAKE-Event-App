@@ -9,7 +9,7 @@
     "@material-ui/icons": "^3.0.2",
     "@uppy/aws-s3": "^0.30.3",
     "@uppy/aws-s3-multipart": "^0.30.3",
-    "@uppy/companion": "^0.17.3",
+    "@uppy/companion": "^1.13.2",
     "@uppy/core": "^0.30.3",
     "@uppy/dashboard": "^0.30.3",
     "@uppy/react": "^0.30.3",
